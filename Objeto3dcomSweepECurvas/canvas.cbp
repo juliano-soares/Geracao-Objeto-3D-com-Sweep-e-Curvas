@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Canvas C++" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="../__bin/Debug/canvas" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../" />
+				<Option object_output="../__obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-g" />
+					<Add directory="include" />
+					<Add directory="src/Components" />
+					<Add directory="src/Components/Vision2d" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="../__bin/Release/canvas" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../" />
+				<Option object_output="../__obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++11" />
+					<Add option="-O2 -Wall" />
+					<Add directory="include" />
+					<Add directory="src/Components" />
+					<Add directory="src/Components/Vision2d" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Linker>
+			<Add library="../lib/libglu32.a" />
+			<Add library="../lib/libopengl32.a" />
+			<Add library="../lib/freeglut.lib" />
+		</Linker>
+		<Unit filename="include/GL/glut.h" />
+		<Unit filename="src/Components/Button/Button.cpp" />
+		<Unit filename="src/Components/Button/Button.h" />
+		<Unit filename="src/Components/Checkbox/Checkbox.cpp" />
+		<Unit filename="src/Components/Checkbox/Checkbox.h" />
+		<Unit filename="src/Components/Curves/Curves.cpp" />
+		<Unit filename="src/Components/Curves/Curves.hpp" />
+		<Unit filename="src/Components/Vision2d/Vision2d.cpp" />
+		<Unit filename="src/Components/Vision2d/Vision2d.h" />
+		<Unit filename="src/Components/Vision3d/Vision3d.cpp" />
+		<Unit filename="src/Components/Vision3d/Vision3d.h" />
+		<Unit filename="src/Config/Config.cpp" />
+		<Unit filename="src/Config/Config.h" />
+		<Unit filename="src/Modules/gl_canvas2d.cpp" />
+		<Unit filename="src/Modules/gl_canvas2d.h" />
+		<Unit filename="src/Utils/MyMatrix.cpp" />
+		<Unit filename="src/Utils/MyMatrix.hpp" />
+		<Unit filename="src/Utils/Point.cpp" />
+		<Unit filename="src/Utils/Point.hpp" />
+		<Unit filename="src/Utils/Utils.cpp" />
+		<Unit filename="src/Utils/Utils.h" />
+		<Unit filename="src/Utils/Vector2.h" />
+		<Unit filename="src/main.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

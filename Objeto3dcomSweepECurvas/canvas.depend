@@ -1,0 +1,372 @@
+# depslib dependency file v1.0
+1589222603 source:d:\ufsm\disciplinas\computacao grafica\demos\gl_1_canvasglut\src\gl_canvas2d.cpp
+	"gl_canvas2d.h"
+	<GL/glut.h>
+
+1603974868 d:\ufsm\disciplinas\computacao grafica\demos\gl_1_canvasglut\src\gl_canvas2d.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<GL/glut.h>
+	<GL/freeglut_ext.h>
+	"Vector2.h"
+
+1426372440 d:\ufsm\disciplinas\computacao grafica\demos\gl_1_canvasglut\include\gl\glut.h
+	"freeglut_std.h"
+
+1437579942 d:\ufsm\disciplinas\computacao grafica\demos\gl_1_canvasglut\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1426372440 d:\ufsm\disciplinas\computacao grafica\demos\gl_1_canvasglut\include\gl\freeglut_ext.h
+	<stdarg.h>
+
+1589217858 d:\ufsm\disciplinas\computacao grafica\demos\gl_1_canvasglut\src\vector2.h
+
+1603975055 source:d:\ufsm\disciplinas\computacao grafica\demos\gl_1_canvasglut\src\main.cpp
+	<GL/glut.h>
+	<GL/freeglut_ext.h>
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	"gl_canvas2d.h"
+	"Bola.h"
+	"Relogio.h"
+	"Botao.h"
+
+1589214882 d:\ufsm\disciplinas\computacao grafica\demos\gl_1_canvasglut\src\bola.h
+	"gl_canvas2d.h"
+
+1193164156 d:\ufsm\disciplinas\computacao grafica\demos\gl_1_canvasglut\src\relogio.h
+	"gl_canvas2d.h"
+
+1589214891 d:\ufsm\disciplinas\computacao grafica\demos\gl_1_canvasglut\src\botao.h
+	"gl_canvas2d.h"
+
+1589218349 source:d:\ufsm\disciplinas\computacao grafica\demos\gl_1_canvasglut\src\relogio.cpp
+	"Relogio.h"
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+
+1589222603 source:c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\gl_1_canvasglut\src\gl_canvas2d.cpp
+	"gl_canvas2d.h"
+	<GL/glut.h>
+
+1603974868 c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\gl_1_canvasglut\src\gl_canvas2d.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<GL/glut.h>
+	<GL/freeglut_ext.h>
+	"Vector2.h"
+
+1426372440 c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\gl_1_canvasglut\include\gl\glut.h
+	"freeglut_std.h"
+
+1437579942 c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\gl_1_canvasglut\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1426372440 c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\gl_1_canvasglut\include\gl\freeglut_ext.h
+	<stdarg.h>
+
+1589217858 c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\gl_1_canvasglut\src\vector2.h
+
+1603975055 source:c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\gl_1_canvasglut\src\main.cpp
+	<GL/glut.h>
+	<GL/freeglut_ext.h>
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	"gl_canvas2d.h"
+	"Bola.h"
+	"Relogio.h"
+	"Botao.h"
+
+1589214882 c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\gl_1_canvasglut\src\bola.h
+	"gl_canvas2d.h"
+
+1193164156 c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\gl_1_canvasglut\src\relogio.h
+	"gl_canvas2d.h"
+
+1589214891 c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\gl_1_canvasglut\src\botao.h
+	"gl_canvas2d.h"
+
+1589218349 source:c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\gl_1_canvasglut\src\relogio.cpp
+	"Relogio.h"
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+
+1657633128 source:c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\src\main.cpp
+	<GL/glut.h>
+	<GL/freeglut_ext.h>
+	"Config/Config.h"
+	<iostream>
+
+1426372440 c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\include\gl\glut.h
+	"freeglut_std.h"
+
+1437579942 c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1426372440 c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\include\gl\freeglut_ext.h
+	<stdarg.h>
+
+1657631014 c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\src\modules\gl_canvas2d.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<GL/glut.h>
+	<GL/freeglut_ext.h>
+	"../Utils/Vector2.h"
+
+1651588406 c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\src\utils\vector2.h
+
+1589222603 source:c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\src\modules\gl_canvas2d.cpp
+	"gl_canvas2d.h"
+	<GL/glut.h>
+
+1657632221 source:c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\src\components\vision3d.cpp
+	"Vision3d.h"
+
+1657632221 c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\src\components\vision3d.h
+
+1659317629 source:c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\src\components\vision2d\vision2d.cpp
+	"Vision2d.h"
+	"../../Utils/Position.hpp"
+
+1657643231 c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\src\components\vision2d\vision2d.h
+	"../../Utils/Position.hpp"
+	"../../Utils/utils.h"
+	"../Curves/Curves.hpp"
+
+1657632221 source:c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\src\components\vision3d\vision3d.cpp
+	"Vision3d.h"
+
+1657632221 c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\src\components\vision3d\vision3d.h
+
+1651588581 source:c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\src\utils\utils.cpp
+	"../Modules/gl_canvas2d.h"
+	"Utils.h"
+	<unistd.h>
+	<iostream>
+
+1651588411 c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\src\utils\utils.h
+	<vector>
+	<string>
+
+1657635874 source:c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\src\components\button\button.cpp
+	"Button.h"
+	"../../Modules/gl_canvas2d.h"
+	"../../Utils/Utils.h"
+	<iostream>
+
+1657634246 c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\src\components\button\button.h
+	<string>
+	<vector>
+	"../Vision2d/Vision2d.h"
+
+1657635829 source:c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\src\components\checkbox\checkbox.cpp
+	"Checkbox.h"
+	"../../Modules/gl_canvas2d.h"
+	"../../Utils/Utils.h"
+	<iostream>
+
+1657634271 c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\src\components\checkbox\checkbox.h
+	<string>
+	<vector>
+	"../Vision2d/Vision2d.h"
+
+1659318818 c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\src\config\config.h
+	"../Components/Button/Button.h"
+	"../Components/Checkbox/Checkbox.h"
+	<vector>
+	<vector>
+	"../Vision2d/Vision2d.h"
+
+1659319638 source:c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\src\config\config.cpp
+	"Config.h"
+	"../Modules/gl_canvas2d.h"
+	"../Utils/Utils.h"
+	"../Utils/Position.hpp"
+	"../Components/Button/Button.h"
+	"../Components/Checkbox/Checkbox.h"
+	<iostream>
+	<algorithm>
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<GL/glut.h>
+	<GL/freeglut_ext.h>
+
+1657641341 source:c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\src\utils\mymatrix.cpp
+	"MyMatrix.hpp"
+	<cmath>
+
+1657641339 c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\src\utils\mymatrix.hpp
+
+1659316769 source:c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\src\utils\position.cpp
+	"Position.hpp"
+	"../Modules/gl_canvas2d.h"
+	<cmath>
+	<iostream>
+
+1659315033 c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\src\utils\position.hpp
+	"MyMatrix.hpp"
+
+1657642943 c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\src\components\curves\curves.hpp
+	"../../Utils/Position.hpp"
+	"../../Utils/Utils.h"
+
+1657643063 source:c:\users\julia\onedrive\Área de trabalho\primeiro-semestre-2022\computação gráfica\cg\demos\t4_julianosoares\src\components\curves\curves.cpp
+	"Curves.hpp"
+	"../../Modules/gl_canvas2d.h"
+	"../../Utils/Utils.h"
+	<cmath>
+	<vector>
+
+1657643063 source:c:\users\julia\onedrive\Área de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\curves\curves.cpp
+	"Curves.hpp"
+	"../../Modules/gl_canvas2d.h"
+	"../../Utils/Utils.h"
+	<cmath>
+	<vector>
+
+1659320249 c:\users\julia\onedrive\Área de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\curves\curves.hpp
+	"../../Utils/Point.hpp"
+	"../../Utils/Utils.h"
+
+1659315033 c:\users\julia\onedrive\Área de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\point.hpp
+	"MyMatrix.hpp"
+
+1657641339 c:\users\julia\onedrive\Área de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\mymatrix.hpp
+
+1651588411 c:\users\julia\onedrive\Área de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\utils.h
+	<vector>
+	<string>
+
+1657631014 c:\users\julia\onedrive\Área de trabalho\t4-cg\objeto3dcomsweepecurvas\src\modules\gl_canvas2d.h
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<GL/glut.h>
+	<GL/freeglut_ext.h>
+	"../Utils/Vector2.h"
+
+1426372440 c:\users\julia\onedrive\Área de trabalho\t4-cg\objeto3dcomsweepecurvas\include\gl\glut.h
+	"freeglut_std.h"
+
+1437579942 c:\users\julia\onedrive\Área de trabalho\t4-cg\objeto3dcomsweepecurvas\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1426372440 c:\users\julia\onedrive\Área de trabalho\t4-cg\objeto3dcomsweepecurvas\include\gl\freeglut_ext.h
+	<stdarg.h>
+
+1651588406 c:\users\julia\onedrive\Área de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\vector2.h
+
+1657632221 source:c:\users\julia\onedrive\Área de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\vision3d\vision3d.cpp
+	"Vision3d.h"
+
+1657632221 c:\users\julia\onedrive\Área de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\vision3d\vision3d.h
+
+1589222603 source:c:\users\julia\onedrive\Área de trabalho\t4-cg\objeto3dcomsweepecurvas\src\modules\gl_canvas2d.cpp
+	"gl_canvas2d.h"
+	<GL/glut.h>
+
+1657635874 source:c:\users\julia\onedrive\Área de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\button\button.cpp
+	"Button.h"
+	"../../Modules/gl_canvas2d.h"
+	"../../Utils/Utils.h"
+	<iostream>
+
+1657634246 c:\users\julia\onedrive\Área de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\button\button.h
+	<string>
+	<vector>
+	"../Vision2d/Vision2d.h"
+
+1659320255 c:\users\julia\onedrive\Área de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\vision2d\vision2d.h
+	"../../Utils/Point.hpp"
+	"../../Utils/utils.h"
+	"../Curves/Curves.hpp"
+
+1657635829 source:c:\users\julia\onedrive\Área de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\checkbox\checkbox.cpp
+	"Checkbox.h"
+	"../../Modules/gl_canvas2d.h"
+	"../../Utils/Utils.h"
+	<iostream>
+
+1657634271 c:\users\julia\onedrive\Área de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\checkbox\checkbox.h
+	<string>
+	<vector>
+	"../Vision2d/Vision2d.h"
+
+1657633128 source:c:\users\julia\onedrive\Área de trabalho\t4-cg\objeto3dcomsweepecurvas\src\main.cpp
+	<GL/glut.h>
+	<GL/freeglut_ext.h>
+	"Config/Config.h"
+	<iostream>
+
+1659318818 c:\users\julia\onedrive\Área de trabalho\t4-cg\objeto3dcomsweepecurvas\src\config\config.h
+	"../Components/Button/Button.h"
+	"../Components/Checkbox/Checkbox.h"
+	<vector>
+	<vector>
+	"../Vision2d/Vision2d.h"
+
+1657641341 source:c:\users\julia\onedrive\Área de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\mymatrix.cpp
+	"MyMatrix.hpp"
+	<cmath>
+
+1651588581 source:c:\users\julia\onedrive\Área de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\utils.cpp
+	"../Modules/gl_canvas2d.h"
+	"Utils.h"
+	<unistd.h>
+	<iostream>
+
+1659320261 source:c:\users\julia\onedrive\Área de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\point.cpp
+	"Point.hpp"
+	"../Modules/gl_canvas2d.h"
+	<cmath>
+	<iostream>
+
+1659320266 source:c:\users\julia\onedrive\Área de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\vision2d\vision2d.cpp
+	"Vision2d.h"
+	"../../Utils/Point.hpp"
+
