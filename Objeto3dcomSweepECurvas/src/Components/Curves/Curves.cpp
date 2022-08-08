@@ -6,103 +6,139 @@
 */
 #include "Curves.hpp"
 #include "../../Modules/gl_canvas2d.h"
-#include "../../Utils/Utils.h"
+#include "../../Utils/Utils.hpp"
+#include "../../Utils/Point.hpp"
 #include <cmath>
 #include <vector>
+#include <iostream>
 
-Curves::Curves()
+using namespace std;
+Curves::Curves(int n, Point *p1, Point *p2)
+{
+    cpontos = n;
+    this->p1 = p1;
+    this->p2 = p2;
+}
+
+Curves::~Curves()
 {
 }
 
-/* Method to set debug mode
-*/
-void Curves::SetDebug(bool debug)
+double fatorial(int n)
 {
-    Debug = debug;
+    double x = 1.0;
+    for (int i = 1; i <= n; i++)
+        x *= (double)i;
+    return x;
 }
 
-/* method to render bezier curves
-   @param p1: point 1.
-   @param p2: point 2.
-   @param p3: point 3.
-   @param p4: point 4.
-   @param filled: boolean field to inform if the curve must be filled.
-   @param rgb: a color to fill the curve.
-*/
-void Curves::RenderBezierCurve(Point * p1, Point * p2, Point * p3, Point * p4, bool filled, vector<float> rgb)
+double Ni(int n, int i)
 {
-    if(Debug){
-       ShowDebug(p1, p2, p3, p4);
-    }
+    double a1 = fatorial(n);
+    double a2 = fatorial(i);
+    double a3 = fatorial(n - i);
+    return a1 / (a2 * a3); // Ni
+}
 
+double Bernstein(int n, int i, double t)
+{
+    double ti = (t == 0.0 && i == 0) ? 1.0 : pow(t, i);              /* t^i */
+    double tni = (n == i && t == 1.0) ? 1.0 : pow((1 - t), (n - i)); /* (1 - t)^i */
+    return Ni(n, i) * ti * tni;                                      // Bases Bernstein
+}
+
+void Curves::RenderBezierCurve()
+{
+    int npts = pcontrole.size();
+    double step = (double)1.0 / (cpontos - 1);
     double t = 0.0;
-    for (t = 0.0; t < 1.0; t += 0.0005)
+
+    pcurva.clear();
+
+    for (int k = 0; k != cpontos; k++, t += step)
     {
-        double x =
-            p1->x * (pow((1 - t), 3)) +
-            p2->x * (3 * t * (pow((1 - t), 2))) +
-            p3->x * (3 * t * t * (1 - t)) +
-            p4->x * (t * t * t);
+        if ((1.0 - t) < 5e-6)
+            t = 1.0;
 
-        double y =
-            p1->y * (pow((1 - t), 3)) +
-            p2->y * (3 * t * (pow((1 - t), 2))) +
-            p3->y * (3 * t * t * (1 - t)) +
-            p4->y * (t * t * t);
-
-        if(filled){
-            CV::color(rgb[0], rgb[1], rgb[2]);
-            CV::line(x, y, x, -10);
+        Point *p = new Point(0.0, 0.0, 0.0);
+        for (int i = 0; i != npts; i++)
+        {
+            double b = Bernstein(npts - 1, i, t);
+            p->x += b * pcontrole[i]->x;
+            p->y += b * pcontrole[i]->y;
         }
 
-        CV::point(x, y);
+        pcurva.push_back(p);
     }
+};
+void Curves::Apply(int typeConnection)
+{
+    if (typeConnection == 2)
+        RenderBezierCurve();
+
+    if (typeConnection == 3)
+        RenderBSplineCurve();
 }
 
-/* method to render B-Spline curves
-   @param p1: point 1.
-   @param p2: point 2.
-   @param p3: point 3.
-   @param p4: point 4.
-*/
-void Curves::RenderBSplineCurve(Point * p1, Point * p2, Point * p3, Point * p4)
+void Curves::RenderBSplineCurve()
 {
-    if(Debug){
-       ShowDebug(p1, p2, p3, p4);
-    }
-
+    int npts = pcontrole.size();
+    double step = (double)1.0 / (cpontos - 1);
     double t = 0.0;
-    for (t = 0.0; t < 1.0; t += 0.0005)
+
+    pcurva.clear();
+
+    for (int k = 0; k != cpontos; k++, t += step)
     {
-        double x =
-            (p1->x * ((1 - t)*(1 - t)*(1 - t))) +
-            (p2->x * ((3 * (t*t*t)) - (6 * (t * t)) + 4)) +
-            (p3->x * ((-3 * (t*t*t)) + (3 * (t * t)) + (3 * t) + 1)) +
-            (p4->x * (t * t * t));
-        x /= 6;
+        if ((1.0 - t) < 5e-6)
+            t = 1.0;
 
-        double y =
-            (p1->y * ((1 - t)*(1 - t)*(1 - t))) +
-            (p2->y * ((3 * (t*t*t)) - (6 * (t * t)) + 4)) +
-            (p3->y * ((-3 * (t*t*t)) + (3 * (t * t)) + (3 * t) + 1)) +
-            (p4->y * (t * t * t));
-        y /= 6;
+        Point *p = new Point(0.0, 0.0, 0.0);
+        for (int i = 0; i != npts; i++)
+        {
+            p->x =
+                (pcontrole[0]->x * ((1 - t) * (1 - t) * (1 - t))) +
+                (pcontrole[1]->x * ((3 * (t * t * t)) - (6 * (t * t)) + 4)) +
+                (pcontrole[2]->x * ((-3 * (t * t * t)) + (3 * (t * t)) + (3 * t) + 1)) +
+                (pcontrole[3]->x * (t * t * t));
+            p->x /= 6;
 
-        CV::point(x, y);
+            p->y =
+                (pcontrole[0]->y * ((1 - t) * (1 - t) * (1 - t))) +
+                (pcontrole[1]->y * ((3 * (t * t * t)) - (6 * (t * t)) + 4)) +
+                (pcontrole[2]->y * ((-3 * (t * t * t)) + (3 * (t * t)) + (3 * t) + 1)) +
+                (pcontrole[3]->y * (t * t * t));
+            p->y /= 6;
+        }
+        pcurva.push_back(p);
     }
 }
 
-/* Method to paint curve points when debug mode is activated
-   @param p1: point 1.
-   @param p2: point 2.
-   @param p3: point 3.
-   @param p4: point 4.
-*/
-void Curves::ShowDebug(Point * p1, Point * p2, Point * p3, Point * p4)
+void Curves::RenderLinesBetweenPoints() {}
+
+void Curves::render()
 {
-    CV::color(0, 0, 1);
-    CV::circleFill(p1->x, p1->y, 5, 20);
-    CV::circleFill(p2->x, p2->y, 5, 20);
-    CV::circleFill(p3->x, p3->y, 5, 20);
-    CV::circleFill(p4->x, p4->y, 5, 20);
+    glPointSize(2);
+    CV::color(1, 0, 0);
+    for (Point *p : this->pcurva)
+    {
+        CV::point(p->x, p->y);
+    }
+    glPointSize(4);
+    CV::color(0, 0, 0);
+    for (Point *p : this->pcontrole)
+    {
+        CV::point(p->x, p->y);
+    }
+    glPointSize(1);
+}
+
+double Curves::getX(double x)
+{
+    return (x > p1->x + 5 ? (x < p2->x - 5 ? x : p2->x - 5) : p1->x + 5);
+}
+
+double Curves::getY(double y)
+{
+    return (y > p1->y + 5 ? (y < p2->y - 5 ? y : p2->y - 5) : p1->y + 5);
 }

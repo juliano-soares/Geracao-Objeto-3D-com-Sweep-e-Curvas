@@ -6,30 +6,31 @@ MyMatrix::MyMatrix()
     this->identity();
 }
 
-void MyMatrix::forPoint(double &x, double &y)
+void MyMatrix::forPoint(double &x, double &y, double &z)
 {
-    double B[]{x, y, 1};
-    double result[]{0, 0, 0};
-    for (int i = 0; i < 3; i++)
+    double B[]{x, y, z, 1};
+    double result[]{0, 0, 0, 0};
+    for (int i = 0; i < 4; i++)
     {
-        for (int k = 0; k < 3; k++)
+        for (int k = 0; k < 4; k++)
         {
             result[i] += this->m[i][k] * B[k];
         }
     }
     x = result[0];
     y = result[1];
+    z = result[2];
 }
 
 MyMatrix MyMatrix::operator*(MyMatrix &B)
 {
     MyMatrix result;
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 4; i++)
     {
-        for (int j = 0; j < 3; j++)
+        for (int j = 0; j < 4; j++)
         {
             result(i, j) = 0;
-            for (int k = 0; k < 3; k++)
+            for (int k = 0; k < 4; k++)
             {
                 result(i, j) += m[i][k] * B(k, j);
             }
@@ -41,9 +42,9 @@ MyMatrix MyMatrix::operator*(MyMatrix &B)
 
 void MyMatrix::identity()
 {
-    for (auto i = 0; i < 3; i++)
+    for (auto i = 0; i < 4; i++)
     {
-        for (auto j = 0; j < 3; j++)
+        for (auto j = 0; j < 4; j++)
         {
             m[i][j] = i == j ? 1 : 0;
         }

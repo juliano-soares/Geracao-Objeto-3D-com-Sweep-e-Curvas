@@ -15,7 +15,7 @@
 #include <GL/glut.h>
 #include <GL/freeglut_ext.h> //callback da wheel do mouse.
 
-#include "Config/Config.h"
+#include "Config/Config.hpp"
 #include <iostream>
 
 using namespace std;

@@ -1,19 +1,35 @@
-#ifndef CURVES_H
-#define CURVES_H
+#ifndef __CURVES_H__
+#define __CURVES_H__
 
 #include "../../Utils/Point.hpp"
-#include "../../Utils/Utils.h"
+#include "../../Utils/Utils.hpp"
 
 #pragma once
 
-class Curves{
-    private:
-        bool Debug;
-    public:
-        Curves();
-        void RenderBezierCurve(Point * p1, Point * p2, Point * p3, Point * p4, bool filled, vector<float> rgb);
-        void RenderBSplineCurve(Point * p1, Point * p2, Point * p3, Point * p4);
-        void SetDebug(bool debug);
-        void ShowDebug(Point * p1, Point * p2, Point * p3, Point * p4);
+class Curves
+{
+private:
+    Point *p1;
+    Point *p2;
+    float knot[25];
+
+public:
+    vector<Point *> pcontrole; // vetor de pontos de controle
+    vector<Point *> pcurva;    // vetor de pontos da curva
+    int cpontos;               // quantidade de pontos na curva
+
+
+    void RenderBezierCurve();
+    void Casteljau(vector<Point *> ctrlPoints, double t, int n);
+    void RenderBSplineCurve();
+    double blend(vector<double> &uVec, double u, int k, int d);
+    float CoxdeBoor(int i, int p, float t);
+    void RenderLinesBetweenPoints();
+    Curves(int n, Point *p1, Point *p2);
+    ~Curves();
+    void render();
+    void Apply(int typeConnection);
+    double getX(double x);
+    double getY(double y);
 };
 #endif

@@ -4,9 +4,9 @@
     @author Juliano Leonardo Soares
     @version 1.1 03/05/22
 */
-#include "Checkbox.h"
+#include "Checkbox.hpp"
 #include "../../Modules/gl_canvas2d.h"
-#include "../../Utils/Utils.h"
+#include "../../Utils/Utils.hpp"
 #include <iostream>
 
 using namespace std;
@@ -25,10 +25,9 @@ Checkbox::~Checkbox() {}
    @param label: label button.
    @param labelColor: label color.
 */
-Checkbox::Checkbox(Vision2d** v2d, int x, int y, float w, float h, bool isChecked, string label, vector<float> labelColor, vector<float> bg)
+Checkbox::Checkbox(int x, int y, float w, float h, bool isChecked, string label, vector<float> labelColor, vector<float> bg)
     : isChecked(isChecked), label(label), labelColor(labelColor)
 {
-    this->v2d = v2d;
     this->x = x;
     this->y = y;
     this->width = w;

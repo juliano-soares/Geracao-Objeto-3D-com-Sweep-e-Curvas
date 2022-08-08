@@ -1,37 +1,45 @@
 /**
     Header MyMatrix
-    @file Buttom.cpp
+    @file Point.cpp
     @author Juliano Leonardo Soares
     @version 1.1 13/06/22
 */
-#ifndef POSITION_H
-#define POSITION_H
+#ifndef __POINT_H__
+#define __POINT_H__
 
 #include "MyMatrix.hpp"
 
 #pragma once
+
+#define degreesToRadians(angleDegrees) ((angleDegrees)*3.14 / 180.0)
+#define radiansToDegrees(angleRadians) ((angleRadians)*180.0 / M_PI)
+
 class Point
 {
 private:
-    MyMatrix mtx;
-
 public:
-    double x, y;
-    int raio;
+    double x, y, z;
     bool selected;
-
+    int raio = 4;
+    // Contructor
     Point();
-    Point(double x, double y, int raio);
-    void rotate(double ang);              // apply the rotation
-    void translate(double dx, double dy); // apply the translation
-    void apply();                         // apply the transformations
-    void scale(double sx, double sy);     // apply the scale
-
+    // Create
+    Point(const Point & p);
+    Point(double x, double y);
+    Point(double x, double y, double z);
+    // Rotatations
+    void RotateX(double ang);
+    void RotateY(double ang);
+    void RotateZ(double ang);
+    // Translation
+    void Translate(double x, double y, double z);
+    // Projection
+    void Projection(double d);
+    // ?????
     void circleInPoint(); // desenha circulo
     void pLineBold(Point &p2);
     bool cIntersect(int mouseX, int mouseY); // calcula intersecção de círculo
-    void pLine(Point &p2);                                           // desenha linha
-
+    void pLine(Point &p2);                   // desenha linha
     ~Point();
 };
 #endif

@@ -1,53 +1,60 @@
 #include "Point.hpp"
 #include "../Modules/gl_canvas2d.h"
 #include <cmath>
-
 #include <iostream>
+
 using namespace std;
 
-Point::Point() : mtx()
-{
-    x = y = 0;
+Point::Point(){
+    x = y = z = 0;
 }
 
-Point::Point(double x, double y, int raio) : mtx()
-{
+Point::Point(const Point & p){
+    this->x = p.x;
+    this->y = p.y;
+    this->z = p.z;
+}
+
+Point::Point(double x, double y){
     this->x = x;
     this->y = y;
-    this->raio = raio;
-    this->selected = false;
+    this->z = 0;
 }
 
-void Point::apply()
-{
-    mtx.forPoint(x, y);
-    mtx.identity();
+Point::Point(double x, double y, double z){
+    this->x = x;
+    this->y = y;
+    this->z = z;
 }
 
-void Point::rotate(double ang)
-{
-    MyMatrix R;
-    R(0, 0) = cos(ang);
-    R(0, 1) = sin(ang);
-    R(1, 0) = -sin(ang);
-    R(1, 1) = cos(ang);
-    mtx = mtx * R;
+void Point::RotateX(double ang){
+    double temp = y;
+    y = y*cos(ang) - z*sin(ang);
+    z = temp*sin(ang) + z*cos(ang);
 }
 
-void Point::translate(double dx, double dy)
-{
-    MyMatrix T;
-    T(0, 2) = dx;
-    T(1, 2) = dy;
-    mtx = mtx * T;
+void Point::RotateY(double ang){
+    double temp = x;
+    x = x*cos(ang) + z*sin(ang);
+    z = -temp*sin(ang) + z*cos(ang);
 }
 
-void Point::scale(double sx, double sy)
-{
-    MyMatrix S;
-    S(0, 0) = sx;
-    S(1, 1) = sy;
-    mtx = mtx * S;
+void Point::RotateZ(double ang){
+    double temp = x;
+    x = x*cos(ang) - y*sin(ang);
+    y = temp*sin(ang) + y*cos(ang);
+}
+
+void Point::Translate(double x, double y, double z){
+    this->x += x;
+    this->y += y;
+    this->z += z;
+}
+
+void Point::Projection(double d){
+    this->x = (x*d) / z;
+    this->y = (y*d) / z;
+    this->z = 0;
 }
 
 void Point::pLine(Point &p2)
@@ -70,7 +77,7 @@ void Point::circleInPoint()
         CV::color(13);
     }
 
-    CV::circleFill(x, y, raio, 30);
+    CV::circleFill(x, y, 4, 30);
     CV::color(13);
 }
 
@@ -85,6 +92,4 @@ bool Point::cIntersect(int mouseX, int mouseY)
 }
 
 Point::~Point()
-{
-    delete &mtx;
-}
+{ }

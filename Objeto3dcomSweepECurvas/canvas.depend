@@ -253,27 +253,29 @@
 	<cmath>
 	<vector>
 
-1657643063 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\curves\curves.cpp
+1659935300 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\curves\curves.cpp
 	"Curves.hpp"
 	"../../Modules/gl_canvas2d.h"
-	"../../Utils/Utils.h"
+	"../../Utils/Utils.hpp"
+	"../../Utils/Point.hpp"
 	<cmath>
 	<vector>
+	<iostream>
 
-1659320249 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\curves\curves.hpp
+1659934805 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\curves\curves.hpp
 	"../../Utils/Point.hpp"
-	"../../Utils/Utils.h"
+	"../../Utils/Utils.hpp"
 
-1659315033 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\point.hpp
+1659925889 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\point.hpp
 	"MyMatrix.hpp"
 
-1657641339 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\mymatrix.hpp
+1659898552 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\mymatrix.hpp
 
 1651588411 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\utils.h
 	<vector>
 	<string>
 
-1657631014 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\modules\gl_canvas2d.h
+1659898763 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\modules\gl_canvas2d.h
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
@@ -299,74 +301,147 @@
 1426372440 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\include\gl\freeglut_ext.h
 	<stdarg.h>
 
-1651588406 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\vector2.h
+1659898876 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\vector2.h
 
 1657632221 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\vision3d\vision3d.cpp
 	"Vision3d.h"
 
 1657632221 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\vision3d\vision3d.h
 
-1589222603 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\modules\gl_canvas2d.cpp
+1659901728 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\modules\gl_canvas2d.cpp
 	"gl_canvas2d.h"
 	<GL/glut.h>
 
-1657635874 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\button\button.cpp
-	"Button.h"
+1659919928 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\button\button.cpp
+	"Button.hpp"
 	"../../Modules/gl_canvas2d.h"
-	"../../Utils/Utils.h"
+	"../../Utils/Utils.hpp"
 	<iostream>
 
-1657634246 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\button\button.h
+1659821619 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\button\button.h
 	<string>
 	<vector>
-	"../Vision2d/Vision2d.h"
+	"../Scene/Scene.h"
 
 1659320255 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\vision2d\vision2d.h
 	"../../Utils/Point.hpp"
 	"../../Utils/utils.h"
 	"../Curves/Curves.hpp"
 
-1657635829 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\checkbox\checkbox.cpp
-	"Checkbox.h"
+1659935717 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\checkbox\checkbox.cpp
+	"Checkbox.hpp"
 	"../../Modules/gl_canvas2d.h"
-	"../../Utils/Utils.h"
+	"../../Utils/Utils.hpp"
 	<iostream>
 
-1657634271 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\checkbox\checkbox.h
+1659821623 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\checkbox\checkbox.h
 	<string>
 	<vector>
-	"../Vision2d/Vision2d.h"
+	"../Scene/Scene.h"
 
-1657633128 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\main.cpp
+1659898730 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\main.cpp
 	<GL/glut.h>
 	<GL/freeglut_ext.h>
-	"Config/Config.h"
+	"Config/Config.hpp"
 	<iostream>
 
-1659318818 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\config\config.h
+1659838652 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\config\config.h
 	"../Components/Button/Button.h"
 	"../Components/Checkbox/Checkbox.h"
+	"../Components/Scene/Scene.h"
 	<vector>
-	<vector>
-	"../Vision2d/Vision2d.h"
 
-1657641341 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\mymatrix.cpp
+1659827863 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\mymatrix.cpp
 	"MyMatrix.hpp"
 	<cmath>
 
-1651588581 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\utils.cpp
+1659898797 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\utils.cpp
 	"../Modules/gl_canvas2d.h"
-	"Utils.h"
+	"Utils.hpp"
 	<unistd.h>
 	<iostream>
 
-1659320261 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\point.cpp
+1659925846 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\point.cpp
 	"Point.hpp"
 	"../Modules/gl_canvas2d.h"
 	<cmath>
 	<iostream>
 
-1659320266 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\vision2d\vision2d.cpp
+1659820218 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\vision2d\vision2d.cpp
 	"Vision2d.h"
 	"../../Utils/Point.hpp"
+	<iostream>
+
+1659936225 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\config\config.cpp
+	"Config.hpp"
+	"../Modules/gl_canvas2d.h"
+	"../Utils/Utils.hpp"
+	"../Utils/Point.hpp"
+	"../Utils/Vector3.hpp"
+	"../Components/Button/Button.hpp"
+	"../Components/Checkbox/Checkbox.hpp"
+	"../Components/Curves/Curves.hpp"
+	"../Components/Object3d/Object3d.hpp"
+	<iostream>
+	<algorithm>
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<GL/glut.h>
+	<GL/freeglut_ext.h>
+
+1659838972 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\scene\scene.h
+	"../../Utils/Point.hpp"
+	"../../Utils/utils.h"
+	"../Curves/Curves.hpp"
+
+1659913923 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\scene\scene.cpp
+	"Scene.hpp"
+	"../../Modules/gl_canvas2d.h"
+	"../../Utils/Point.hpp"
+	"../Object3d/Object3d.hpp"
+	<iostream>
+
+1659885356 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\vector3.h
+
+1659936141 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\config\config.hpp
+	"../Components/Button/Button.hpp"
+	"../Components/Checkbox/Checkbox.hpp"
+	"../Components/Object3d/Object3d.hpp"
+	"../Components/Curves/Curves.hpp"
+	<vector>
+
+1659920621 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\button\button.hpp
+	<string>
+	<vector>
+
+1659912525 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\scene\scene.hpp
+	"../../Utils/Point.hpp"
+	"../../Utils/utils.hpp"
+	"../Curves/Curves.hpp"
+	"../Object3d/Object3d.hpp"
+
+1659904249 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\utils.hpp
+	<vector>
+	<string>
+
+1659920632 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\checkbox\checkbox.hpp
+	<string>
+	<vector>
+
+1659885356 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\vector3.hpp
+
+1659929514 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\object3d\object3d.cpp
+	"../../Modules/gl_canvas2d.h"
+	"../../Utils/Utils.hpp"
+	"../../Utils/Point.hpp"
+	"Object3d.hpp"
+	<vector>
+	<iostream>
+
+1659924813 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\object3d\object3d.hpp
+	"../../Utils/Point.hpp"
+	"../../Utils/Utils.hpp"
+	"../Curves/Curves.hpp"
 

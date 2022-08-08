@@ -5,7 +5,7 @@
     @version 1.1 03/05/22
 */
 #include "../Modules/gl_canvas2d.h"
-#include "Utils.h"
+#include "Utils.hpp"
 #include <unistd.h>
 #include <iostream>
 

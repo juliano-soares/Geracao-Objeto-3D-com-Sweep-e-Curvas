@@ -47,19 +47,20 @@
 			<Add library="../lib/libopengl32.a" />
 			<Add library="../lib/freeglut.lib" />
 		</Linker>
+		<Unit filename="include/GL/freeglut.h" />
+		<Unit filename="include/GL/freeglut_ext.h" />
+		<Unit filename="include/GL/freeglut_std.h" />
 		<Unit filename="include/GL/glut.h" />
 		<Unit filename="src/Components/Button/Button.cpp" />
-		<Unit filename="src/Components/Button/Button.h" />
+		<Unit filename="src/Components/Button/Button.hpp" />
 		<Unit filename="src/Components/Checkbox/Checkbox.cpp" />
-		<Unit filename="src/Components/Checkbox/Checkbox.h" />
+		<Unit filename="src/Components/Checkbox/Checkbox.hpp" />
 		<Unit filename="src/Components/Curves/Curves.cpp" />
 		<Unit filename="src/Components/Curves/Curves.hpp" />
-		<Unit filename="src/Components/Vision2d/Vision2d.cpp" />
-		<Unit filename="src/Components/Vision2d/Vision2d.h" />
-		<Unit filename="src/Components/Vision3d/Vision3d.cpp" />
-		<Unit filename="src/Components/Vision3d/Vision3d.h" />
+		<Unit filename="src/Components/Object3d/Object3d.cpp" />
+		<Unit filename="src/Components/Object3d/Object3d.hpp" />
 		<Unit filename="src/Config/Config.cpp" />
-		<Unit filename="src/Config/Config.h" />
+		<Unit filename="src/Config/Config.hpp" />
 		<Unit filename="src/Modules/gl_canvas2d.cpp" />
 		<Unit filename="src/Modules/gl_canvas2d.h" />
 		<Unit filename="src/Utils/MyMatrix.cpp" />
@@ -67,8 +68,9 @@
 		<Unit filename="src/Utils/Point.cpp" />
 		<Unit filename="src/Utils/Point.hpp" />
 		<Unit filename="src/Utils/Utils.cpp" />
-		<Unit filename="src/Utils/Utils.h" />
+		<Unit filename="src/Utils/Utils.hpp" />
 		<Unit filename="src/Utils/Vector2.h" />
+		<Unit filename="src/Utils/Vector3.hpp" />
 		<Unit filename="src/main.cpp" />
 		<Extensions>
 			<code_completion />

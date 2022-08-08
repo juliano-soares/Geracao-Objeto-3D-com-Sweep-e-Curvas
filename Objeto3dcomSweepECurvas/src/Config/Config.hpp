@@ -1,11 +1,11 @@
-#ifndef ___CONFIG__H___
-#define ___CONFIG__H___
+#ifndef __CONFIG__H__
+#define __CONFIG__H__
 
-#include "../Components/Button/Button.h"
-#include "../Components/Checkbox/Checkbox.h"
+#include "../Components/Button/Button.hpp"
+#include "../Components/Checkbox/Checkbox.hpp"
+#include "../Components/Object3d/Object3d.hpp"
+#include "../Components/Curves/Curves.hpp"
 #include <vector>
-#include <vector>
-#include "../Vision2d/Vision2d.h"
 
 using namespace std;
 
@@ -23,15 +23,17 @@ public:
     bool insideCanvas = false;
     bool interaction;
 
-    int screenWidth, screenHeight;
+    int screenWidth = 1000;
+    int screenHeight = 720;
+
     int difX, difY;
     int typeConnection;
 
-    vector<Button*> buttons;
-    vector<Checkbox*> cbTypeConnection;
-    vector<Checkbox*> cbTypeBeseir;
-    vector<Point*> points;
-    Vision2d *v2d;
+    vector<Button *> buttons;
+    vector<Checkbox *> cbTypeConnection;
+    Curves *curva;
+    Object3d *object3d;
+    Point *m = NULL;
 
     Config();
     ~Config();
@@ -48,14 +50,14 @@ public:
 
     // Function Buttons
     void isActivatedButton(int mouseX, int mouseY);
-    void ActionButton(Button* btn);
-    void CreateButtons(Vision2d* v2d);
-    void ChangeStateButtons(Vision2d* v2d);
+    void ActionButton(Button *btn);
+    void CreateButtons();
+    void ChangeStateButtons();
 
     // Function Checkbox
-    void isActivatedCheckbox(int mouseX, int mouseY, vector<Checkbox*> cb);
+    void isActivatedCheckbox(int mouseX, int mouseY, vector<Checkbox *> cb);
     void UpdateTypeConnection();
-    void CreateCheckbox(Vision2d* v2d);
+    void CreateCheckbox();
 };
 
 #endif
