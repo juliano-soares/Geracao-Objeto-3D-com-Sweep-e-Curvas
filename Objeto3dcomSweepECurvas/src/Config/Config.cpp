@@ -30,32 +30,32 @@ Config::Config()
     Point *p1 = new Point(0, 180, 0);
     Point *p2 = new Point(250, screenHeight - 20, 0);
     curva = new Curves(20, p1, p2);
-    object3d = new Object3d(20, 100);
+    object3d = new Object3d(2, 10);
 }
 
 /* Renders/draws all components on the screen
  */
 void Config::Render()
 {
-    renderAplication();
     CV::color(4);
-
-    if(cbTypeConnection[2]->isChecked && curva->pcontrole.size() > 4) {
-        curva->pcontrole.erase(curva->pcontrole.begin()+4, curva->pcontrole.end());
-    }
-
-    for (vector<Point>::size_type i = 0; i != curva->pcontrole.size(); i++)
-        curva->pcontrole[i]->circleInPoint();
-
-
     if (!curva->pcontrole.empty())
     {
         curva->render();
         object3d->Render();
     }
 
+    renderAplication();
+
+    if (cbTypeConnection[2]->isChecked && curva->pcontrole.size() > 4)
+    {
+        curva->pcontrole.erase(curva->pcontrole.begin() + 4, curva->pcontrole.end());
+    }
+
+    for (vector<Point>::size_type i = 0; i != curva->pcontrole.size(); i++)
+        curva->pcontrole[i]->circleInPoint();
+
     curva->Apply(typeConnection);
-    if(curva->pcurva.size() > 0)
+    if (curva->pcurva.size() > 0)
         object3d->Apply(curva->pcurva);
 
     for (vector<Button>::size_type i = 0; i != buttons.size(); i++)
@@ -83,7 +83,7 @@ void Config::renderAplication()
     rgb = Utils::RGBtoFloat(38, 49, 67);
     CV::color(rgb[0], rgb[1], rgb[2]);
     CV::rectFill(0, 0, screenWidth, 180);
-    //CV::rectFill(0, screenHeight, screenWidth, screenHeight - 30);
+    // CV::rectFill(0, screenHeight, screenWidth, screenHeight - 30);
 
     // All texts
     rgb = Utils::RGBtoFloat(255, 250, 250);
@@ -104,18 +104,63 @@ void Config::renderAplication()
 
 void Config::Keyboard(int key)
 {
-    opcao = key;
-    cout << key;
-    switch (key)
+    cout << "\n"
+         << key;
+    if (key == 99)
+    { // Tecle'C' -> Limpar a Curva
+        curva->pcontrole.clear();
+        curva->pcurva.clear();
+        object3d->clear();
+    }
+    else if (key == 109)
+    { // Tecle'M' -> Adicionar Faces
+        object3d->nfaces++;
+        object3d->Apply(curva->pcurva);
+    }
+    else if (key == 110)
+    { // Tecle'N' -> Remover Faces
+        object3d->nfaces = object3d->nfaces < 2 ? 1 : object3d->nfaces - 1;
+        object3d->Apply(curva->pcurva);
+    }
+    else if (key == 112)
+    { // Tecle'P" -> Adicionar Pontos
+        curva->cpontos++;
+        object3d->npontos++;
+        curva->Apply(typeConnection);
+        object3d->Apply(curva->pcurva);
+    }
+    else if (key == 111)
+    { // Tecle'O' -> Remover Pontos
+        curva->cpontos = curva->cpontos < 2 ? 1 : curva->cpontos - 1;
+        object3d->npontos = curva->cpontos;
+        curva->Apply(typeConnection);
+        object3d->Apply(curva->pcurva);
+    }
+    else if (key == 8) // backspace -> apagar ultimo ponto
     {
-    case 27:
-        exit(0);
-        break;
-    case 49:
         if (!curva->pcontrole.empty())
             curva->pcontrole.pop_back();
-        break;
     }
+    else if (key == 200) // Seta Esquerda -> Translada X para esquerda
+        object3d->Translate(1, false, curva->pcurva);
+    else if (key == 202) // Seta Direita -> Translada X para direita
+        object3d->Translate(1, true, curva->pcurva);
+    else if (key == 201) // Seta Cima -> Translada Y para cima
+        object3d->Translate(2, false, curva->pcurva);
+    else if (key == 203) // Seta Baixo -> Translada Y para baixo
+        object3d->Translate(2, true, curva->pcurva);
+    else if (key == 56) // Tecla 8 -> Rotaciona Y positivamente
+        object3d->Moves(1, false, curva->pcurva);
+    else if (key == 50) // Tecla 2 -> Rotaciona Y negativamente
+        object3d->Moves(1, true, curva->pcurva);
+    else if (key == 52) // Tecla 8 -> Rotaciona X positivamente
+        object3d->Moves(2, false, curva->pcurva);
+    else if (key == 54) // Tecla 8 -> Rotaciona X negativamente
+        object3d->Moves(2, true, curva->pcurva);
+    else if (key == 57) // Tecla 8 -> Rotaciona Z positivamente
+        object3d->Moves(3, false, curva->pcurva);
+    else if (key == 55) // Tecla 8 -> Rotaciona Z negativamente
+        object3d->Moves(3, true, curva->pcurva);
 };
 
 void Config::keyboardUp(int key){};
@@ -237,10 +282,13 @@ void Config::isActivatedCheckbox(int mouseX, int mouseY, vector<Checkbox *> cb)
             }
             else
             {
-                if(i == 2 && curva->pcontrole.size() < 4) {
+                if (i == 2 && curva->pcontrole.size() < 4)
+                {
                     cb[i]->isChecked = false;
                     cout << "\nNumero de Pontos para B-Spline deve ser no minimo 4!! \n";
-                } else {
+                }
+                else
+                {
                     cb[i]->isChecked = true;
                 }
             }

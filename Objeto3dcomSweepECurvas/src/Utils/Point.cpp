@@ -7,24 +7,28 @@ using namespace std;
 
 Point::Point(){
     x = y = z = 0;
+    selected = false;
 }
 
 Point::Point(const Point & p){
     this->x = p.x;
     this->y = p.y;
     this->z = p.z;
+    selected = false;
 }
 
 Point::Point(double x, double y){
     this->x = x;
     this->y = y;
     this->z = 0;
+    selected = false;
 }
 
 Point::Point(double x, double y, double z){
     this->x = x;
     this->y = y;
     this->z = z;
+    selected = false;
 }
 
 void Point::RotateX(double ang){

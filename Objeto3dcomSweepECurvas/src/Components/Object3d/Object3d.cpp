@@ -34,29 +34,41 @@ void Object3d::Apply(std::vector<Point *> pontos)
             data.push_back(new Point(*pontos[j]));
             // Operações sobre o Ponto
             data[j]->Translate(0, 0, 0);
-            data[j]->RotateY(ang);
+            data[j]->RotateY(ang + yang);
             data[j]->RotateZ(zang);
             data[j]->RotateX(xang);
-            data[j]->Translate(620, 0, 0);
+            data[j]->Translate(620 + trX, 0 + trY, 0);
         }
 
         malha.push_back(data);
     }
 }
 
-void Object3d::Moves(bool eixo, bool op, std::vector<Point *> pontos)
+void Object3d::Moves(int eixo, bool op, std::vector<Point *> pontos)
 {
     if (!malha.empty())
     {
-        double step = op ? 0.005 : -0.005; // verifica se soma ou diminui
-        if (eixo)
-        { // True -> X
+        double step = op ? 0.01 : -0.01; // verifica se soma ou diminui
+        if (eixo == 1)
             xang += step;
-        }
-        else
-        { // False -> Z
+        if (eixo == 2)
+            yang += step;
+        if (eixo == 3)
             zang += step;
-        }
+        Apply(pontos); // reconstroi a malha
+    }
+}
+
+void Object3d::Translate(int eixo, bool op, std::vector<Point *> pontos)
+{
+    if (!malha.empty())
+    {
+        cout << "Here" << trX;
+        double step = op ? 10 : -10; // verifica se soma ou diminui
+        if (eixo == 1)
+            trX += step;
+        if (eixo == 2)
+            trY += step;
         Apply(pontos); // reconstroi a malha
     }
 }
@@ -65,17 +77,16 @@ void Object3d::Render()
 {
     if (!malha.empty())
     {
-        // Animação =/
         for (auto vet : malha)
         {
             for (auto p : vet)
             {
                 p->Translate(-620, 0, 0);
-                p->RotateY(animation);
+                p->RotateZ(animation);
                 p->Translate(620, 0, 0);
             }
         }
-        CV::color(0, 0, 0);
+
         for (int i = 0; i < nfaces; i++)
         {
             for (int j = 0; j < npontos; j++)
@@ -94,13 +105,14 @@ void Object3d::Render()
                     if (j != npontos - 1)
                     {
                         CV::line(malha[i][j]->x, malha[i][j]->y, malha[i][j + 1]->x, malha[i][j + 1]->y);
+                        CV::line(malha[i][j]->x, malha[i][j]->y, malha[i + 1][j + 1]->x, malha[i + 1][j + 1]->y);
                     }
                 }
             }
         }
+
         CV::color(1, 0, 0);
-        glPointSize(3);
-        // Desenha os vertices da malha
+        glPointSize(4);
         for (auto vet : malha)
         {
             for (auto p : vet)
@@ -118,5 +130,5 @@ void Object3d::clear()
         vet.clear();
     malha.clear();
 
-    zang = xang = 0.0;
+    zang = xang = yang = trX = trY = 0.0;
 }

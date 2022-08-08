@@ -73,9 +73,10 @@ void Curves::RenderBezierCurve()
 };
 void Curves::Apply(int typeConnection)
 {
+    if (typeConnection == 1)
+        RenderLinesBetweenPoints();
     if (typeConnection == 2)
         RenderBezierCurve();
-
     if (typeConnection == 3)
         RenderBSplineCurve();
 }
@@ -114,7 +115,30 @@ void Curves::RenderBSplineCurve()
     }
 }
 
-void Curves::RenderLinesBetweenPoints() {}
+void Curves::RenderLinesBetweenPoints()
+{
+    int npts = pcontrole.size();
+    double step = (double)1.0 / (cpontos - 1);
+    double t = 0.0;
+
+    pcurva.clear();
+
+    for (int k = 0; k != cpontos; k++, t += step)
+    {
+        if ((1.0 - t) < 5e-6)
+            t = 1.0;
+
+        Point *p = new Point(0.0, 0.0, 0.0);
+        for (int i = 0; i != npts; i++)
+        {
+            double b = Bernstein(npts - 1, i, t);;
+            p->x += b + pcontrole[i]->x;
+            p->y += b + pcontrole[i]->y;
+        }
+
+        pcurva.push_back(p);
+    }
+}
 
 void Curves::render()
 {

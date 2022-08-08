@@ -11,17 +11,22 @@ class Object3d
 private:
     std::vector<std::vector<Point *>> malha;
     double animation;
+    bool isAnimation = true;
 
 public:
-    double zang;
     double xang;
+    double yang;
+    double zang;
+    double trX, trY;
+
     int npontos;
     int nfaces;
 
     Object3d(int p, int f);
     void Apply(std::vector<Point *> pontos);
     void Render();
-    void Moves(bool eixo, bool op, std::vector<Point *> pontos);
+    void Moves(int eixo, bool op, std::vector<Point *> pontos);
+    void Translate(int eixo, bool op, std::vector<Point *> pontos);
 
     void clear();
 

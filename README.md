@@ -13,24 +13,28 @@
 ## Implementações:
 
 ### Básico:
-- [x] Conexão entre pontos com retas
 - [x] Conexão entre pontos com curva Bézier
-- [X] Conexão entre pontos com curva B-spline 4 pontos de controle
-- [ ] Visualização ortográfica e perspectiva (sob vários ângulos) em wiframe, com uso de triângulos
-- [ ] Parametrização do número de pontos e faces do objeto gerado 
-- [ ] Rotacionar
-- [ ] Transladar
-- [ ] Gerar molas
-- [ ] Gerar donuts
+- [x] Conexão entre pontos com curva B-spline 4 pontos de controle
+- [x] Visualização ortográfica e perspectiva (sob vários ângulos) em wiframe, com uso de triângulos
+- [x] Parametrização do número de pontos e faces do objeto gerado 
+- [x] Rotacionar
+- [X] Transladar
 ### Extras:
-- [ ] Exibir vetores normais em cada face
 - [x] Adição de mais de 4 pontos de controle
+- [ ] Exibir valores de EixoX, EixoY, EixoZ, TrasnX, TransY
+- [ ] Reduzir o menu de Baixo
+- [ ] Animar com True/false
+- [ ] Poder exibir/esconder pontos de controle e linhas
+- [ ] Conexão entre pontos com retas
+- [ ] Poder ativar/desativar o preenchimento os triangualos
+- [ ] Poder ativar/desativar ponto de luz
+- [ ] Exibir vetores normais em cada face
 - [ ] Adição de mais de uma patch
 - [ ] Remoção de faces ocultas - sem preenchimento
 - [ ] Preenchimento de polígonos
   - [ ] com iluminação por vértice
   - [ ] com iluminação por pixel
 - [ ] Mover ponto de luz
-- [ ] Mover cena
-## Melhorias a fazer:
-- [ ] ...
+- [ ] Zoom in/out
+- [ ] Gerar molas
+- [ ] Gerar donuts 
