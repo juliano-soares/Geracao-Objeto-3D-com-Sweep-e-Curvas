@@ -14,7 +14,7 @@ Object3d::Object3d(int p, int f)
     g = new Graphics();
     npontos = p;
     nfaces = f;
-    animation = 0.005;
+    animation = 0.01;
 }
 
 void Object3d::Apply(std::vector<Point *> pontos)
@@ -65,7 +65,6 @@ void Object3d::Translate(int eixo, bool op, std::vector<Point *> pontos)
 {
     if (!malha.empty())
     {
-        cout << "Here" << trX;
         double step = op ? 10 : -10; // verifica se soma ou diminui
         if (eixo == 1)
             trX += step;
@@ -79,16 +78,6 @@ void Object3d::Render()
 {
     if (!malha.empty())
     {
-        for (auto vet : malha)
-        {
-            for (auto p : vet)
-            {
-                p->Translate(-620, 0, 0);
-                p->RotateZ(animation);
-                p->Translate(620, 0, 0);
-            }
-        }
-
         for (int i = 0; i < nfaces; i++)
         {
             for (int j = 0; j < npontos; j++)
@@ -124,7 +113,7 @@ void Object3d::Render()
 
         for (size_t i = 0, end = vertices.size() / 3; i < end; i++)
         {
-            //g->DrawTriangle(vertices[i], vertices[i+ 1], vertices[i + 2]);
+            // g->DrawTriangle(vertices[i], vertices[i+ 1], vertices[i + 2]);
         }
 
         CV::color(1, 0, 0);

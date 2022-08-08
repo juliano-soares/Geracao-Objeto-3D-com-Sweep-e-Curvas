@@ -5,10 +5,11 @@
 </div>
 
 ## Descrição:
-... 
+Um programa para fazer modelagem e visualização 3D de objetos gerados com sweep
+rotacional e curvas de Bezier.
 
 ## Manual de Uso:
-...
+Basta abrir a plicação executar o main junto com as bibliotecas necessaria para rodar o canvas2d. As telcas de ação estão descritas na interface do programa.
 
 ## Implementações:
 
@@ -21,10 +22,7 @@
 - [X] Transladar
 ### Extras:
 - [x] Adição de mais de 4 pontos de controle
-- [ ] Animar com True/false
-- [ ] Poder exibir/esconder pontos de controle e linhas
-- [ ] Conexão entre pontos com retas
-- [ ] Poder ativar/desativar o preenchimento os triangualos
+- [ ] Poder ativar/desativar o preenchimento os triangualos (Foi feito mas travou de mais kkk)
 - [ ] Poder ativar/desativar ponto de luz
 - [ ] Exibir vetores normais em cada face
 - [ ] Adição de mais de uma patch
@@ -32,4 +30,9 @@
 - [ ] Preenchimento de polígonos
   - [ ] com iluminação por vértice
   - [ ] com iluminação por pixel
-- [ ] Zoom in/out
+
+### Melhorias a fazer:
+- [ ] Terminar de implementar as tarefas extras
+- [ ] Gerar outras formas de conexao entr os pontos 
+- [ ] Utilizar textura 
+- [ ] E melhorar a performance

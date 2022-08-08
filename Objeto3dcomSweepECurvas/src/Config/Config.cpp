@@ -47,7 +47,7 @@ void Config::Render()
 
     renderAplication();
 
-    if (cbTypeConnection[2]->isChecked && curva->pcontrole.size() > 4)
+    if (cbTypeConnection[1]->isChecked && curva->pcontrole.size() > 4)
     {
         curva->pcontrole.erase(curva->pcontrole.begin() + 4, curva->pcontrole.end());
     }
@@ -71,7 +71,7 @@ void Config::Render()
 /* Init Canvas */
 void Config::InitCanvas()
 {
-    CV::init(&screenWidth, &screenHeight, "T4 - Gera��o Objeto 3D com Sweep e Curvas");
+    CV::init(&screenWidth, &screenHeight, "T4 - Geracao Objeto 3D com Sweep e Curvas");
     rgb = Utils::RGBtoFloat(20, 29, 43); // Background-color
     CV::clear(rgb[0], rgb[1], rgb[2]);
     CV::run();
@@ -129,8 +129,6 @@ void Config::renderAplication()
 
 void Config::Keyboard(int key)
 {
-    cout << "\n"
-         << key;
     if (key == 127) // Tecle'Delete' -> Limpar a Curva
     {
         curva->pcontrole.clear();
@@ -268,7 +266,8 @@ void Config::isActivatedButton(int mouseX, int mouseY)
 /* Function responsible for triggering the action of the button. */
 void Config::ActionButton(Button *btn)
 {
-    if (btn->id == 1) {
+    if (btn->id == 1)
+    {
         curva->pcontrole.clear();
         curva->pcurva.clear();
         object3d->clear();
@@ -306,7 +305,7 @@ void Config::isActivatedCheckbox(int mouseX, int mouseY, vector<Checkbox *> cb)
             }
             else
             {
-                if (i == 2 && curva->pcontrole.size() < 4)
+                if (i == 1 && curva->pcontrole.size() < 4)
                 {
                     cb[i]->isChecked = false;
                     cout << "\nNumero de Pontos para B-Spline deve ser no minimo 4!! \n";
@@ -324,7 +323,7 @@ void Config::isActivatedCheckbox(int mouseX, int mouseY, vector<Checkbox *> cb)
  */
 void Config::UpdateTypeConnection()
 {
-    if (!cbTypeConnection[0]->isChecked && !cbTypeConnection[1]->isChecked && !cbTypeConnection[2]->isChecked)
+    if (!cbTypeConnection[0]->isChecked && !cbTypeConnection[1]->isChecked)
     {
         typeConnection = 0;
     }
@@ -334,8 +333,6 @@ void Config::UpdateTypeConnection()
             typeConnection = 1;
         else if (cbTypeConnection[1]->isChecked)
             typeConnection = 2;
-        else if (cbTypeConnection[2]->isChecked)
-            typeConnection = 3;
         else
             typeConnection = 0;
     }
@@ -347,7 +344,6 @@ void Config::UpdateTypeConnection()
 void Config::CreateCheckbox()
 {
     vector<float> labelColor = Utils::RGBtoFloat(255, 250, 250);
-    cbTypeConnection.push_back(new Checkbox(10, 120, 20, 20, false, "Retas", Utils::RGBtoFloat(255, 99, 71), Utils::RGBtoFloat(255, 250, 250)));
-    cbTypeConnection.push_back(new Checkbox(110, 120, 20, 20, false, "Bezier", Utils::RGBtoFloat(50, 205, 50), Utils::RGBtoFloat(255, 250, 250)));
-    cbTypeConnection.push_back(new Checkbox(220, 120, 20, 20, false, "B-Spline", Utils::RGBtoFloat(30, 144, 255), Utils::RGBtoFloat(255, 250, 250)));
+    cbTypeConnection.push_back(new Checkbox(10, 120, 20, 20, false, "Bezier", Utils::RGBtoFloat(255, 99, 71), Utils::RGBtoFloat(255, 250, 250)));
+    cbTypeConnection.push_back(new Checkbox(110, 120, 20, 20, false, "B-Spline", Utils::RGBtoFloat(50, 205, 50), Utils::RGBtoFloat(255, 250, 250)));
 }

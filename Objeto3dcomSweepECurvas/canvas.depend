@@ -253,7 +253,7 @@
 	<cmath>
 	<vector>
 
-1659992355 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\curves\curves.cpp
+1659994052 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\curves\curves.cpp
 	"Curves.hpp"
 	"../../Modules/gl_canvas2d.h"
 	"../../Utils/Utils.hpp"
@@ -372,7 +372,7 @@
 	"../../Utils/Point.hpp"
 	<iostream>
 
-1659992711 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\config\config.cpp
+1659994129 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\config\config.cpp
 	"Config.hpp"
 	"../Modules/gl_canvas2d.h"
 	"../Utils/Utils.hpp"
@@ -435,7 +435,7 @@
 1659982890 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\vector3.hpp
 	<vector>
 
-1659988722 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\object3d\object3d.cpp
+1659993906 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\object3d\object3d.cpp
 	"../../Modules/gl_canvas2d.h"
 	"../../Utils/Utils.hpp"
 	"../../Utils/Point.hpp"

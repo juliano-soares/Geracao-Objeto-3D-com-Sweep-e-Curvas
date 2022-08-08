@@ -74,10 +74,8 @@ void Curves::RenderBezierCurve()
 void Curves::Apply(int typeConnection)
 {
     if (typeConnection == 1)
-        RenderLinesBetweenPoints();
-    if (typeConnection == 2)
         RenderBezierCurve();
-    if (typeConnection == 3)
+    if (typeConnection == 2)
         RenderBSplineCurve();
 }
 
