@@ -21,8 +21,6 @@
 - [X] Transladar
 ### Extras:
 - [x] Adição de mais de 4 pontos de controle
-- [ ] Exibir valores de EixoX, EixoY, EixoZ, TrasnX, TransY
-- [ ] Reduzir o menu de Baixo
 - [ ] Animar com True/false
 - [ ] Poder exibir/esconder pontos de controle e linhas
 - [ ] Conexão entre pontos com retas
@@ -34,7 +32,4 @@
 - [ ] Preenchimento de polígonos
   - [ ] com iluminação por vértice
   - [ ] com iluminação por pixel
-- [ ] Mover ponto de luz
 - [ ] Zoom in/out
-- [ ] Gerar molas
-- [ ] Gerar donuts 

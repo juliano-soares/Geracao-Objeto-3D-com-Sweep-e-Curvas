@@ -15,6 +15,7 @@
 #include <time.h>
 #include <GL/glut.h>
 #include <GL/freeglut_ext.h>
+#include <sstream>
 
 using namespace std;
 
@@ -54,7 +55,6 @@ void Config::Render()
     for (vector<Point>::size_type i = 0; i != curva->pcontrole.size(); i++)
         curva->pcontrole[i]->circleInPoint();
 
-    curva->Apply(typeConnection);
     if (curva->pcurva.size() > 0)
         object3d->Apply(curva->pcurva);
 
@@ -64,6 +64,7 @@ void Config::Render()
     for (vector<Checkbox>::size_type i = 0; i != cbTypeConnection.size(); i++)
         cbTypeConnection[i]->Render();
 
+    curva->Apply(typeConnection);
     UpdateTypeConnection();
 }
 
@@ -88,8 +89,33 @@ void Config::renderAplication()
     rgb = Utils::RGBtoFloat(255, 250, 250);
     CV::color(rgb[0], rgb[1], rgb[2]);
     CV::text(100, screenHeight - 20, "Visao 2D");
-    CV::text(612, screenHeight - 20, "Visao 3D");
+    CV::text(550, screenHeight - 20, "Visao 3D");
     CV::text(10, 160, "Tipo de conexao:");
+
+    string nfaces = to_string(object3d->nfaces);
+    string npontos = to_string(object3d->npontos);
+    string string0 = "Num. Faces: " + nfaces + " Num. Pontos: " + npontos;
+    CV::text(10, 90, string0.c_str());
+
+    string rX = to_string(object3d->xang).substr(0, std::to_string(object3d->xang).find(".") + 2 + 1);
+    string rY = to_string(object3d->yang).substr(0, std::to_string(object3d->yang).find(".") + 2 + 1);
+    string rZ = to_string(object3d->zang).substr(0, std::to_string(object3d->zang).find(".") + 2 + 1);
+    string string1 = "Rotacao: X: " + rX + " Y: " + rY + " Z: " + rZ;
+    CV::text(10, 70, string1.c_str());
+
+    string trX = to_string(object3d->trX).substr(0, std::to_string(object3d->trX).find(".") + 2 + 1);
+    string trY = to_string(object3d->trY).substr(0, std::to_string(object3d->trY).find(".") + 2 + 1);
+    string string2 = "Translacao: X: " + trX + " Y: " + trY;
+    CV::text(10, 50, string2.c_str());
+
+    CV::text(420, 160, "Teclas de acao:");
+    CV::text(420, 140, "Faces: + [D] - [A] | Pontos: + [W] - [S]");
+    CV::text(420, 120, "Apagar ultimo ponto: [BACKSPACE] | Todos pontos: [DELETE]");
+    CV::text(420, 100, "Rotacao em X: + [4] - [6]");
+    CV::text(420, 80, "Rotacao em Y: + [8] - [2]");
+    CV::text(420, 60, "Rotacao em Z: + [7] - [9]");
+    CV::text(420, 40, "Translacao em X: + [Seta Esquerda] - [Seta Direita]");
+    CV::text(420, 20, "Translacao em Y: + [Seta Cima] - [Seta Baixo]");
 
     CV::rectFill(0, screenHeight - 28, screenWidth, screenHeight - 30);
     CV::line(252, 180, 252, screenHeight);
@@ -105,33 +131,33 @@ void Config::Keyboard(int key)
 {
     cout << "\n"
          << key;
-    if (key == 99)
-    { // Tecle'C' -> Limpar a Curva
+    if (key == 127) // Tecle'Delete' -> Limpar a Curva
+    {
         curva->pcontrole.clear();
         curva->pcurva.clear();
         object3d->clear();
     }
-    else if (key == 109)
-    { // Tecle'M' -> Adicionar Faces
+    else if (key == 100) // Tecle'D' -> Adicionar Faces
+    {
         object3d->nfaces++;
         object3d->Apply(curva->pcurva);
     }
-    else if (key == 110)
-    { // Tecle'N' -> Remover Faces
+    else if (key == 97)
+    { // Tecle'A' -> Remover Faces
         object3d->nfaces = object3d->nfaces < 2 ? 1 : object3d->nfaces - 1;
         object3d->Apply(curva->pcurva);
     }
-    else if (key == 112)
-    { // Tecle'P" -> Adicionar Pontos
+    else if (key == 119)
+    { // Tecle'W" -> Adicionar Pontos
         curva->cpontos++;
         object3d->npontos++;
         curva->Apply(typeConnection);
         object3d->Apply(curva->pcurva);
     }
-    else if (key == 111)
-    { // Tecle'O' -> Remover Pontos
+    else if (key == 115)
+    { // Tecle'S' -> Remover Pontos
         curva->cpontos = curva->cpontos < 2 ? 1 : curva->cpontos - 1;
-        object3d->npontos = object3d->npontos < 2 ? 1 : object3d->npontos - 1;;
+        object3d->npontos = object3d->npontos < 2 ? 1 : object3d->npontos - 1;
         curva->Apply(typeConnection);
         object3d->Apply(curva->pcurva);
     }
@@ -211,7 +237,6 @@ void Config::Mouse(int button, int state, int wheel, int direction, int mouseX, 
     if (insideCanvas && state == 1 && !interaction)
     {
         curva->pcontrole.push_back(new Point(mouseX, mouseY, 0));
-
         return;
     }
 
@@ -243,18 +268,18 @@ void Config::isActivatedButton(int mouseX, int mouseY)
 /* Function responsible for triggering the action of the button. */
 void Config::ActionButton(Button *btn)
 {
-    if (btn->id == 1) // ID = Flip Vertical
+    if (btn->id == 1) {
         curva->pcontrole.clear();
+        curva->pcurva.clear();
+        object3d->clear();
+    }
 }
 
 /* Function responsible for creating the buttons.*/
 void Config::CreateButtons()
 {
-    // Cores dos botoes
     vector<float> bg = Utils::RGBtoFloat(26, 35, 39);
     vector<float> labelColor = Utils::RGBtoFloat(255, 255, 255);
-
-    // Flip
     buttons.push_back(new Button(1, 10, 10, 160, 30, bg, "Restaurar", labelColor));
 }
 

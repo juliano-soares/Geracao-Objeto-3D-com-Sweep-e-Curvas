@@ -61,6 +61,8 @@
 		<Unit filename="src/Components/Object3d/Object3d.hpp" />
 		<Unit filename="src/Config/Config.cpp" />
 		<Unit filename="src/Config/Config.hpp" />
+		<Unit filename="src/Graphics/Graphics.cpp" />
+		<Unit filename="src/Graphics/Graphics.hpp" />
 		<Unit filename="src/Modules/gl_canvas2d.cpp" />
 		<Unit filename="src/Modules/gl_canvas2d.h" />
 		<Unit filename="src/Utils/MyMatrix.cpp" />

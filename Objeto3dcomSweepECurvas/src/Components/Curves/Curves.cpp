@@ -88,7 +88,6 @@ void Curves::RenderBSplineCurve()
     double t = 0.0;
 
     pcurva.clear();
-
     for (int k = 0; k != cpontos; k++, t += step)
     {
         if ((1.0 - t) < 5e-6)

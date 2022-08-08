@@ -11,13 +11,11 @@ class Curves
 private:
     Point *p1;
     Point *p2;
-    float knot[25];
 
 public:
     vector<Point *> pcontrole; // vetor de pontos de controle
     vector<Point *> pcurva;    // vetor de pontos da curva
     int cpontos;               // quantidade de pontos na curva
-
 
     void RenderBezierCurve();
     void Casteljau(vector<Point *> ctrlPoints, double t, int n);

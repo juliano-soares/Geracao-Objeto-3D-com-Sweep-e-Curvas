@@ -253,7 +253,7 @@
 	<cmath>
 	<vector>
 
-1659978807 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\curves\curves.cpp
+1659992355 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\curves\curves.cpp
 	"Curves.hpp"
 	"../../Modules/gl_canvas2d.h"
 	"../../Utils/Utils.hpp"
@@ -262,7 +262,7 @@
 	<vector>
 	<iostream>
 
-1659934805 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\curves\curves.hpp
+1659992072 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\curves\curves.hpp
 	"../../Utils/Point.hpp"
 	"../../Utils/Utils.hpp"
 
@@ -372,7 +372,7 @@
 	"../../Utils/Point.hpp"
 	<iostream>
 
-1659986491 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\config\config.cpp
+1659992711 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\config\config.cpp
 	"Config.hpp"
 	"../Modules/gl_canvas2d.h"
 	"../Utils/Utils.hpp"
@@ -389,6 +389,7 @@
 	<time.h>
 	<GL/glut.h>
 	<GL/freeglut_ext.h>
+	<sstream>
 
 1659838972 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\scene\scene.h
 	"../../Utils/Point.hpp"
@@ -434,7 +435,7 @@
 1659982890 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\vector3.hpp
 	<vector>
 
-1659988446 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\object3d\object3d.cpp
+1659988722 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\object3d\object3d.cpp
 	"../../Modules/gl_canvas2d.h"
 	"../../Utils/Utils.hpp"
 	"../../Utils/Point.hpp"
