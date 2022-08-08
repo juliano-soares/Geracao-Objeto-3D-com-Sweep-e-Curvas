@@ -1,7 +1,7 @@
 # Geração de Objeto 3D com Sweep e Curvas
 
 <div style="align-item:center;">
-    <img src="./Objero3dcomSweepECurvas/resources/captura.png" width="800" alt="captura do projeto."/>
+    <img src="./Objeto3dcomSweepECurvas/resources/captura.PNG" width="800" alt="captura do projeto."/>
 </div>
 
 ## Descrição:
