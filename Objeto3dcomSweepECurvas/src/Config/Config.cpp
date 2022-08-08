@@ -2,11 +2,11 @@
 #include "../Modules/gl_canvas2d.h"
 #include "../Utils/Utils.hpp"
 #include "../Utils/Point.hpp"
-#include "../Utils/Vector3.hpp"
 #include "../Components/Button/Button.hpp"
 #include "../Components/Checkbox/Checkbox.hpp"
 #include "../Components/Curves/Curves.hpp"
 #include "../Components/Object3d/Object3d.hpp"
+
 #include <iostream>
 #include <algorithm>
 #include <math.h>
@@ -83,7 +83,6 @@ void Config::renderAplication()
     rgb = Utils::RGBtoFloat(38, 49, 67);
     CV::color(rgb[0], rgb[1], rgb[2]);
     CV::rectFill(0, 0, screenWidth, 180);
-    // CV::rectFill(0, screenHeight, screenWidth, screenHeight - 30);
 
     // All texts
     rgb = Utils::RGBtoFloat(255, 250, 250);
@@ -93,7 +92,7 @@ void Config::renderAplication()
     CV::text(10, 160, "Tipo de conexao:");
 
     CV::rectFill(0, screenHeight - 28, screenWidth, screenHeight - 30);
-    CV::line(screenWidth / 2 / 2, 180, 252, screenHeight);
+    CV::line(252, 180, 252, screenHeight);
 }
 
 //**********************************************************
@@ -132,7 +131,7 @@ void Config::Keyboard(int key)
     else if (key == 111)
     { // Tecle'O' -> Remover Pontos
         curva->cpontos = curva->cpontos < 2 ? 1 : curva->cpontos - 1;
-        object3d->npontos = curva->cpontos;
+        object3d->npontos = object3d->npontos < 2 ? 1 : object3d->npontos - 1;;
         curva->Apply(typeConnection);
         object3d->Apply(curva->pcurva);
     }
@@ -146,9 +145,9 @@ void Config::Keyboard(int key)
     else if (key == 202) // Seta Direita -> Translada X para direita
         object3d->Translate(1, true, curva->pcurva);
     else if (key == 201) // Seta Cima -> Translada Y para cima
-        object3d->Translate(2, false, curva->pcurva);
-    else if (key == 203) // Seta Baixo -> Translada Y para baixo
         object3d->Translate(2, true, curva->pcurva);
+    else if (key == 203) // Seta Baixo -> Translada Y para baixo
+        object3d->Translate(2, false, curva->pcurva);
     else if (key == 56) // Tecla 8 -> Rotaciona Y positivamente
         object3d->Moves(1, false, curva->pcurva);
     else if (key == 50) // Tecla 2 -> Rotaciona Y negativamente

@@ -5,6 +5,9 @@
 #include "../Components/Checkbox/Checkbox.hpp"
 #include "../Components/Object3d/Object3d.hpp"
 #include "../Components/Curves/Curves.hpp"
+#include "../Utils/Vector3.hpp"
+#include "../Graphics/Graphics.hpp"
+
 #include <vector>
 
 using namespace std;
@@ -31,6 +34,7 @@ public:
 
     vector<Button *> buttons;
     vector<Checkbox *> cbTypeConnection;
+    vector<Vec3f> vertices;
     Curves *curva;
     Object3d *object3d;
     Point *m = NULL;

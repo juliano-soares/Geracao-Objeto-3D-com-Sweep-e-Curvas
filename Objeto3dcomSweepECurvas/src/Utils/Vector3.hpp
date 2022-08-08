@@ -1,119 +1,99 @@
-/**
-    Vector2 functions
-    @file Vector3.h
-    @author Juliano Leonardo Soares
-    @version 1.1 03/05/22
-*/
+#pragma once
+#include <vector>
 
-#ifndef __VECTOR_3_H__
-#define __VECTOR_3_H__
-
-class Vector3
+template <typename T>
+class Vec3
 {
 public:
-	float x, y, z;
-
-	Vector3( void )
+	T x, y, z;
+	Vec3() = default;
+	Vec3(T x, T y, T z)
+			: x(x),
+				y(y),
+				z(z)
 	{
-		x = y = z = 0.0;
-	};
-
-	Vector3( const float tx, const float ty, const float tz )
+	}
+	template <typename T3>
+	explicit operator Vec3<T3>() const
 	{
-		x = tx;
-		y = ty;
-		z = tz;
-	};
-
-//	construtor de copia
-	Vector3( const Vector3& v )
+		return {(T3)x, (T3)y, (T3)z};
+	}
+	Vec3 &Normalize(Vec3 &p)
 	{
-		this->x = v.x;
-		this->y = v.y;
-		this->z = v.z;
-	};
-
-    void setValor( const float tx, const float ty, const float tz )
+		T mag = p.x * p.x + p.y * p.y + p.z * p.z;
+		mag = pow(mag, 0.5);
+		p = p.operator/(mag);
+		return p;
+	}
+	/*Vec4	operator-() const
 	{
-		x = tx;
-		y = ty;
-		z = tz;
-	};
-
-    //inicializacao de vetor
-	void setValor(const Vector3 v)
+		return Vec4( -x,-y );
+	}*/
+	Vec3 cross(const Vec3 &rhs) const
 	{
-		x = v.x;
-		y = v.y;
-		z = v.z;
-	};
-
-//	Soma de vetores
-	inline Vector3 operator + ( const Vector3 v )
+		return Vec3(
+				y * rhs.z - z * rhs.y,
+				z * rhs.x - x * rhs.z,
+				x * rhs.y - y * rhs.x);
+	}
+	T dot(const Vec3 &rhs) const
 	{
-		Vector3 aux( x + v.x, y + v.y, z + v.z );
-		return( aux );
+		return x * rhs.x + y * rhs.y + z * rhs.z;
+	}
+	Vec3 &operator=(const Vec3 &rhs)
+	{
+		x = rhs.x;
+		y = rhs.y;
+		z = rhs.z;
+		return *this;
 	}
 
-//	Subtracao de vetores
-	inline Vector3 operator - ( const Vector3 v )
+	Vec3 &operator+=(const Vec3 &rhs)
 	{
-		Vector3 aux( x - v.x, y - v.y, z - v.z );
-		return( aux );
+		x += rhs.x;
+		y += rhs.y;
+		z += rhs.z;
+		return *this;
 	}
-
-//	Produto por escalar (float)
-	inline Vector3 operator * ( const float s )
+	Vec3 &operator-=(const Vec3 &rhs)
 	{
-		Vector3 aux( x * s, y * s, z * s );
-		return( aux );
+		x -= rhs.x;
+		y -= rhs.y;
+		z -= rhs.z;
+		return *this;
 	}
-
-//	Divisao por escalar
-	inline Vector3  operator / ( const float s )
+	Vec3 operator+(const Vec3 &rhs) const
 	{
-		Vector3 aux( x / s, y / s, z / s );
-		return( aux );
+		return Vec3(*this) += rhs;
 	}
-
-//	Produto escalar
-	inline float operator * ( const Vector3 v )
+	Vec3 operator-(const Vec3 &rhs) const
 	{
-		float aux = x * v.x + y * v.y + z * v.z;
-		return( aux );
+		return Vec3(*this) -= rhs;
 	}
-
-//	Produto vetorial
-	inline Vector3 operator ^ ( Vector3 v )
+	Vec3 &operator*=(const T &rhs)
 	{
-		Vector3 aux( y * v.z - z * v.y,
-			       z * v.x - x * v.z,
-			       x * v.y - y * v.x );
-		return( aux );
+		x *= rhs;
+		y *= rhs;
+		z *= rhs;
+		return *this;
 	}
-
-//  norma do vetor
-	float norma( void )
+	Vec3 operator*(const T &rhs) const // multiply const with vector
 	{
-		return (float)( sqrt( x * x + y * y + z * z ) );
+		return Vec3(*this) *= rhs;
 	}
-
-	float distancia( Vector3 v )
+	Vec3 &operator/=(const T &rhs)
 	{
-		return( (*this - v).norma() );
+		x /= rhs;
+		y /= rhs;
+		z /= rhs;
+		return *this;
 	}
-
-//	normaliza o vetor
-	Vector3 normalize( void )
+	Vec3 operator/(const T &rhs) const
 	{
-		return( (*this) / (this->norma()) );
-	}
-
-	//	normaliza o vetor
-	Vector3 extende(float val)
-	{
-		return ((*this) * (val) );
+		return Vec3(*this) /= rhs;
 	}
 };
 
-#endif
+typedef Vec3<float> Vec3f;
+typedef Vec3<double> Ved3d;
+typedef Vec3<int> Vec3i;

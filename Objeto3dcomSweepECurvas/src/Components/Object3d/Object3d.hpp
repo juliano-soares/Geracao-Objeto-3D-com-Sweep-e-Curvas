@@ -3,7 +3,10 @@
 
 #include "../../Utils/Point.hpp"
 #include "../../Utils/Utils.hpp"
+#include "../../Utils/Vector3.hpp"
 #include "../Curves/Curves.hpp"
+#include "../Graphics/Graphics.hpp"
+
 #pragma once
 
 class Object3d
@@ -14,10 +17,12 @@ private:
     bool isAnimation = true;
 
 public:
+    vector<Vec3f> vertices;
     double xang;
     double yang;
     double zang;
     double trX, trY;
+    Graphics *g;
 
     int npontos;
     int nfaces;

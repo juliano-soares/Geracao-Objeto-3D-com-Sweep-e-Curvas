@@ -2,6 +2,7 @@
 #include "../../Utils/Utils.hpp"
 #include "../../Utils/Point.hpp"
 #include "../Graphics/Graphics.hpp"
+#include "../../Utils/Vector3.hpp"
 #include "Object3d.hpp"
 
 #include <vector>
@@ -11,10 +12,10 @@ using namespace std;
 
 Object3d::Object3d(int p, int f)
 {
-    g = new Graphics();
     npontos = p;
     nfaces = f;
     animation = 0.005;
+    g = new Graphics();
 }
 
 void Object3d::Apply(std::vector<Point *> pontos)
@@ -27,6 +28,11 @@ void Object3d::Apply(std::vector<Point *> pontos)
     double ang = 0.0;
     double step = PI_2 / nfaces;
     // Reconstroi a malha
+    vertices.emplace_back(100, 200, 0);
+    vertices.emplace_back(200, 480, 0);
+    vertices.emplace_back(250, 100, 0);
+
+
     std::vector<Point *> data; // auxiliar
     for (int i = 0; i < nfaces; i++, ang += step)
     {
@@ -113,20 +119,6 @@ void Object3d::Render()
             }
         }
 
-        vertices.clear();
-        for (int i = 0; i < nfaces; i++)
-        {
-            for (int j = 0; j < npontos; j++)
-            {
-                vertices.emplace_back(malha[i][j]->x, malha[i][j]->y, malha[i][j]->z);
-            }
-        }
-
-        for (size_t i = 0, end = vertices.size() / 3; i < end; i++)
-        {
-            //g->DrawTriangle(vertices[i], vertices[i+ 1], vertices[i + 2]);
-        }
-
         CV::color(1, 0, 0);
         glPointSize(4);
         for (auto vet : malha)
@@ -137,6 +129,15 @@ void Object3d::Render()
             }
         }
         glPointSize(1);
+    }
+    if(vertices.size()>3) {
+        for (size_t i = 0, end = triangles.indices.size() / 3; i < end; i++){
+        const Vec3f& v0 = triangles.vertices[triangles.indices[i * 3]];
+        const Vec3f& v1 = triangles.vertices[triangles.indices[i * 3 + 1]];
+        const Vec3f& v2 = triangles.vertices[triangles.indices[i * 3 + 2]];
+        Vec3f normal = (v2 - v1).cross(v0 - v1);
+        triangles.backFace[i] = Vec3f(0.0f, 0.0f, 1.0f).dot(normal) >= 0.0f;
+    }
     }
 }
 
