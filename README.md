@@ -33,6 +33,6 @@ Basta abrir a plicação executar o main junto com as bibliotecas necessaria par
 
 ### Melhorias a fazer:
 - [ ] Terminar de implementar as tarefas extras
-- [ ] Gerar outras formas de conexao entr os pontos 
+- [ ] Gerar outras formas de conexao entre os pontos 
 - [ ] Utilizar textura 
 - [ ] E melhorar a performance
