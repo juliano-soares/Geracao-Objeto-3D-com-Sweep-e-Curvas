@@ -1,6 +1,6 @@
 /**
     Header Button
-    @file Button.h
+    @file Button.hpp
     @author Juliano Leonardo Soares
     @version 1.1 03/05/22
 */

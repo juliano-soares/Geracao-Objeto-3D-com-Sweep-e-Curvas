@@ -1,5 +1,8 @@
 # Geração de Objeto 3D com Sweep e Curvas
 
+Nome: Juliano Leonardo Soares
+Matricula: 201713854
+
 ## Descrição:
 Um programa para fazer modelagem e visualização 3D de objetos gerados com sweep
 rotacional e curvas de Bezier.

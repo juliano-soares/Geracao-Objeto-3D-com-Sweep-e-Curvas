@@ -1,40 +1,34 @@
+/**
+    Object3d functions
+    @file Object3d.hpp
+    @author Juliano Leonardo Soares
+    @version 1.1 24/07/22
+*/
 #ifndef __OBJECT3D_H__
 #define __OBJECT3D_H__
 
 #include "../../Utils/Point.hpp"
 #include "../../Utils/Utils.hpp"
-#include "../../Utils/Vector3.hpp"
 #include "../Curves/Curves.hpp"
-#include "../Graphics/Graphics.hpp"
 
 #pragma once
 
 class Object3d
 {
 private:
-    std::vector<std::vector<Point *>> malha;
-    double animation;
-    bool isAnimation = true;
+    std::vector<std::vector<Point *>> wireframe;
 
 public:
-    vector<Vec3f> vertices;
-    double xang;
-    double yang;
-    double zang;
-    double trX, trY;
-    Graphics *g;
-
-    int npontos;
+    double angX, angY, angZ, trX, trY; // variables for rotation and translation
+    int nPoints;
     int nfaces;
 
     Object3d(int p, int f);
-    void Apply(std::vector<Point *> pontos);
+    void reset();
     void Render();
-    void Moves(int eixo, bool op, std::vector<Point *> pontos);
+    void Apply(std::vector<Point *> pontos);
+    void Rotation(int eixo, bool op, std::vector<Point *> pontos);
     void Translate(int eixo, bool op, std::vector<Point *> pontos);
-
-    void clear();
-
     ~Object3d();
 };
 

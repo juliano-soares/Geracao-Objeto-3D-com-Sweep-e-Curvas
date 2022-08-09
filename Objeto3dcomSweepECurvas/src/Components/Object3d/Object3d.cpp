@@ -1,7 +1,12 @@
+/**
+    Object3d functions
+    @file Object3d.cpp
+    @author Juliano Leonardo Soares
+    @version 1.1 24/07/22
+*/
 #include "../../Modules/gl_canvas2d.h"
 #include "../../Utils/Utils.hpp"
 #include "../../Utils/Point.hpp"
-#include "../Graphics/Graphics.hpp"
 #include "Object3d.hpp"
 
 #include <vector>
@@ -9,116 +14,106 @@
 
 using namespace std;
 
+/* constructor */
 Object3d::Object3d(int p, int f)
 {
-    g = new Graphics();
-    npontos = p;
+    nPoints = p;
     nfaces = f;
-    animation = 0.01;
 }
 
-void Object3d::Apply(std::vector<Point *> pontos)
+/* function to rotate the point mesh */
+void Object3d::Rotation(int eixo, bool op, std::vector<Point *> pontos)
 {
-    // LIMPA o que já existia na malha
-    for (auto vet : malha)
-        vet.clear();
-    malha.clear();
-
-    double ang = 0.0;
-    double step = PI_2 / nfaces;
-    // Reconstroi a malha
-    std::vector<Point *> data; // auxiliar
-    for (int i = 0; i < nfaces; i++, ang += step)
+    if (!wireframe.empty())
     {
-        data.clear();
-        for (int j = 0; j < npontos; j++)
-        {
-            data.push_back(new Point(*pontos[j]));
-            // Operações sobre o Ponto
-            data[j]->Translate(0, 0, 0);
-            data[j]->RotateY(ang + yang);
-            data[j]->RotateZ(zang);
-            data[j]->RotateX(xang);
-            data[j]->Translate(620 + trX, 0 + trY, 0);
-        }
-
-        malha.push_back(data);
-    }
-}
-
-void Object3d::Moves(int eixo, bool op, std::vector<Point *> pontos)
-{
-    if (!malha.empty())
-    {
-        double step = op ? 0.01 : -0.01; // verifica se soma ou diminui
+        double step = op ? 0.01 : -0.01;
         if (eixo == 1)
-            xang += step;
+            angX += step;
         if (eixo == 2)
-            yang += step;
+            angY += step;
         if (eixo == 3)
-            zang += step;
-        Apply(pontos); // reconstroi a malha
+            angZ += step;
+        Apply(pontos);
     }
 }
 
+/* function to translate the mesh of points */
 void Object3d::Translate(int eixo, bool op, std::vector<Point *> pontos)
 {
-    if (!malha.empty())
+    if (!wireframe.empty())
     {
-        double step = op ? 10 : -10; // verifica se soma ou diminui
+        double step = op ? 10 : -10;
         if (eixo == 1)
             trX += step;
         if (eixo == 2)
             trY += step;
-        Apply(pontos); // reconstroi a malha
+        Apply(pontos);
     }
 }
 
+/* function to apply changes to 3d object */
+void Object3d::Apply(std::vector<Point *> pontos)
+{
+
+    for (auto vet : wireframe)
+        vet.clear();
+    wireframe.clear();
+
+    double ang = 0.0;
+    double step = PI_2 / nfaces;
+    std::vector<Point *> pointsAux;
+
+    for (int i = 0; i < nfaces; i++, ang += step)
+    {
+        pointsAux.clear();
+        for (int j = 0; j < nPoints; j++)
+        {
+            pointsAux.push_back(new Point(*pontos[j]));
+            pointsAux[j]->Translate(0, 0, 0);
+            pointsAux[j]->RotateY(ang + angY);
+            pointsAux[j]->RotateZ(angZ);
+            pointsAux[j]->RotateX(angX);
+            pointsAux[j]->Translate(620 + trX, 0 + trY, 0);
+        }
+
+        wireframe.push_back(pointsAux);
+    }
+}
+
+/* function to render point mesh */
 void Object3d::Render()
 {
-    if (!malha.empty())
+    if (!wireframe.empty())
     {
-        for (int i = 0; i < nfaces; i++)
+        CV::color(0, 0, 1);
+        for (int j = 0; j < nPoints; j++)
         {
-            for (int j = 0; j < npontos; j++)
+            for (int i = 0; i < nfaces; i++)
             {
                 if (i == nfaces - 1)
                 {
-                    CV::line(malha[i][j]->x, malha[i][j]->y, malha[0][j]->x, malha[0][j]->y);
-                    if (j != npontos - 1)
+                    CV::line(wireframe[i][j]->x, wireframe[i][j]->y, wireframe[0][j]->x, wireframe[0][j]->y);
+                    if (j != nPoints - 1)
                     {
-                        CV::line(malha[i][j]->x, malha[i][j]->y, malha[i][j + 1]->x, malha[i][j + 1]->y);
+                        CV::line(wireframe[i][j]->x, wireframe[i][j]->y, wireframe[i][j + 1]->x, wireframe[i][j + 1]->y);
+                        CV::line(wireframe[i][j]->x, wireframe[i][j]->y, wireframe[0][j + 1]->x, wireframe[0][j + 1]->y);
                     }
                 }
                 else
                 {
-                    CV::line(malha[i][j]->x, malha[i][j]->y, malha[i + 1][j]->x, malha[i + 1][j]->y);
-                    if (j != npontos - 1)
+                    CV::line(wireframe[i][j]->x, wireframe[i][j]->y, wireframe[i + 1][j]->x, wireframe[i + 1][j]->y);
+                    if (j != nPoints - 1)
                     {
-                        CV::line(malha[i][j]->x, malha[i][j]->y, malha[i][j + 1]->x, malha[i][j + 1]->y);
-                        CV::line(malha[i][j]->x, malha[i][j]->y, malha[i + 1][j + 1]->x, malha[i + 1][j + 1]->y);
+                        CV::line(wireframe[i][j]->x, wireframe[i][j]->y, wireframe[i][j + 1]->x, wireframe[i][j + 1]->y);
+                        CV::line(wireframe[i + 1][j + 1]->x, wireframe[i + 1][j + 1]->y, wireframe[i][j]->x, wireframe[i][j]->y);
                     }
                 }
             }
         }
 
-        vertices.clear();
-        for (int i = 0; i < nfaces; i++)
-        {
-            for (int j = 0; j < npontos; j++)
-            {
-                vertices.emplace_back(malha[i][j]->x, malha[i][j]->y, malha[i][j]->z);
-            }
-        }
-
-        for (size_t i = 0, end = vertices.size() / 3; i < end; i++)
-        {
-            // g->DrawTriangle(vertices[i], vertices[i+ 1], vertices[i + 2]);
-        }
-
         CV::color(1, 0, 0);
         glPointSize(4);
-        for (auto vet : malha)
+        for (auto vet : wireframe)
         {
             for (auto p : vet)
             {
@@ -129,11 +124,11 @@ void Object3d::Render()
     }
 }
 
-void Object3d::clear()
+/* function to erase 3d objec */
+void Object3d::reset()
 {
-    for (auto vet : malha)
+    for (auto vet : wireframe)
         vet.clear();
-    malha.clear();
-
-    zang = xang = yang = trX = trY = 0.0;
+    wireframe.clear();
+    angZ = angX = angY = trX = trY = 0.0;
 }

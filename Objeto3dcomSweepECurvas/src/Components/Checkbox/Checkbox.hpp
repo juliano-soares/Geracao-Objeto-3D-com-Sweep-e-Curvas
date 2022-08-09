@@ -1,6 +1,6 @@
 /**
     Header Checkbox
-    @file Checkbox.h
+    @file Checkbox.hpp
     @author Juliano Leonardo Soares
     @version 1.1 03/05/22
 */

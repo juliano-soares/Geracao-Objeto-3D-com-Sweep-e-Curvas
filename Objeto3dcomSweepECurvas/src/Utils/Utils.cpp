@@ -37,10 +37,10 @@ string Utils::getImagePath (const char* filename) {
     string path = getCurrentPath();
     const char* aux;
     #ifdef WIN32
-        aux = "\\T1_JulianoSoares\\resources\\";
+        aux = "\\T4_JulianoSoares\\resources\\";
         path += aux;
     #else
-        aux = "/T1_JulianoSoares/resources/";
+        aux = "/T4_JulianoSoares/resources/";
         path += aux;
     #endif
     path += filename;

@@ -253,7 +253,7 @@
 	<cmath>
 	<vector>
 
-1659994052 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\curves\curves.cpp
+1660074187 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\curves\curves.cpp
 	"Curves.hpp"
 	"../../Modules/gl_canvas2d.h"
 	"../../Utils/Utils.hpp"
@@ -262,12 +262,11 @@
 	<vector>
 	<iostream>
 
-1659992072 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\curves\curves.hpp
+1660073518 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\curves\curves.hpp
 	"../../Utils/Point.hpp"
 	"../../Utils/Utils.hpp"
 
-1659925889 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\point.hpp
-	"MyMatrix.hpp"
+1660074139 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\point.hpp
 
 1659898552 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\mymatrix.hpp
 
@@ -355,13 +354,13 @@
 	"MyMatrix.hpp"
 	<cmath>
 
-1659898797 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\utils.cpp
+1660065655 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\utils.cpp
 	"../Modules/gl_canvas2d.h"
 	"Utils.hpp"
 	<unistd.h>
 	<iostream>
 
-1659963582 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\point.cpp
+1660074082 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\point.cpp
 	"Point.hpp"
 	"../Modules/gl_canvas2d.h"
 	<cmath>
@@ -372,7 +371,7 @@
 	"../../Utils/Point.hpp"
 	<iostream>
 
-1659994129 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\config\config.cpp
+1660075595 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\config\config.cpp
 	"Config.hpp"
 	"../Modules/gl_canvas2d.h"
 	"../Utils/Utils.hpp"
@@ -405,16 +404,14 @@
 
 1659885356 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\vector3.h
 
-1659986484 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\config\config.hpp
+1660075972 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\config\config.hpp
 	"../Components/Button/Button.hpp"
 	"../Components/Checkbox/Checkbox.hpp"
 	"../Components/Object3d/Object3d.hpp"
 	"../Components/Curves/Curves.hpp"
-	"../Utils/Vector3.hpp"
-	"../Graphics/Graphics.hpp"
 	<vector>
 
-1659920621 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\button\button.hpp
+1660064809 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\button\button.hpp
 	<string>
 	<vector>
 
@@ -428,35 +425,32 @@
 	<vector>
 	<string>
 
-1659920632 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\checkbox\checkbox.hpp
+1660064818 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\checkbox\checkbox.hpp
 	<string>
 	<vector>
 
-1659982890 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\vector3.hpp
+1660065690 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\utils\vector3.hpp
 	<vector>
 
-1659993906 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\object3d\object3d.cpp
+1660074737 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\object3d\object3d.cpp
 	"../../Modules/gl_canvas2d.h"
 	"../../Utils/Utils.hpp"
 	"../../Utils/Point.hpp"
-	"../Graphics/Graphics.hpp"
 	"Object3d.hpp"
 	<vector>
 	<iostream>
 
-1659986490 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\object3d\object3d.hpp
+1660071915 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\components\object3d\object3d.hpp
 	"../../Utils/Point.hpp"
 	"../../Utils/Utils.hpp"
-	"../../Utils/Vector3.hpp"
 	"../Curves/Curves.hpp"
-	"../Graphics/Graphics.hpp"
 
 1659983232 c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\graphics\graphics.hpp
 	"../Utils/Point.hpp"
 	"../Utils/Utils.hpp"
 	"../Utils/Vector3.hpp"
 
-1659983259 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\graphics\graphics.cpp
+1660064903 source:c:\users\julia\onedrive\햞ea de trabalho\t4-cg\objeto3dcomsweepecurvas\src\graphics\graphics.cpp
 	"../Modules/gl_canvas2d.h"
 	"../Utils/Utils.hpp"
 	"../Utils/Point.hpp"

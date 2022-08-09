@@ -1,3 +1,9 @@
+/**
+    Curves functions
+    @file Curves.hpp
+    @author Juliano Leonardo Soares
+    @version 1.1 13/06/22
+*/
 #ifndef __CURVES_H__
 #define __CURVES_H__
 
@@ -13,21 +19,18 @@ private:
     Point *p2;
 
 public:
-    vector<Point *> pcontrole; // vetor de pontos de controle
-    vector<Point *> pcurva;    // vetor de pontos da curva
-    int cpontos;               // quantidade de pontos na curva
+    vector<Point *> pcontrole; // vector of control points
+    vector<Point *> pcurva;    // vector of curve points
+    int cpontos;               // number of points on the curve
 
     void RenderBezierCurve();
-    void Casteljau(vector<Point *> ctrlPoints, double t, int n);
     void RenderBSplineCurve();
-    double blend(vector<double> &uVec, double u, int k, int d);
-    float CoxdeBoor(int i, int p, float t);
-    void RenderLinesBetweenPoints();
+    double getIntermediatePoints(int n, int i, double t);
+    double recursiveLevels(int n, int i);
+    double valuePoint(int n);
     Curves(int n, Point *p1, Point *p2);
     ~Curves();
     void render();
     void Apply(int typeConnection);
-    double getX(double x);
-    double getY(double y);
 };
 #endif

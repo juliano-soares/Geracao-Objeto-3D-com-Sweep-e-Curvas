@@ -1,3 +1,9 @@
+/**
+    Config functions
+    @file Config.cpp
+    @author Juliano Leonardo Soares
+    @version 1.2 24/07/22
+*/
 #include "Config.hpp"
 #include "../Modules/gl_canvas2d.h"
 #include "../Utils/Utils.hpp"
@@ -31,7 +37,7 @@ Config::Config()
     Point *p1 = new Point(0, 180, 0);
     Point *p2 = new Point(250, screenHeight - 20, 0);
     curva = new Curves(20, p1, p2);
-    object3d = new Object3d(2, 10);
+    object3d = new Object3d(20, 10);
 }
 
 /* Renders/draws all components on the screen
@@ -93,13 +99,13 @@ void Config::renderAplication()
     CV::text(10, 160, "Tipo de conexao:");
 
     string nfaces = to_string(object3d->nfaces);
-    string npontos = to_string(object3d->npontos);
-    string string0 = "Num. Faces: " + nfaces + " Num. Pontos: " + npontos;
+    string nPoints = to_string(object3d->nPoints);
+    string string0 = "Num. Faces: " + nfaces + " Num. Pontos: " + nPoints;
     CV::text(10, 90, string0.c_str());
 
-    string rX = to_string(object3d->xang).substr(0, std::to_string(object3d->xang).find(".") + 2 + 1);
-    string rY = to_string(object3d->yang).substr(0, std::to_string(object3d->yang).find(".") + 2 + 1);
-    string rZ = to_string(object3d->zang).substr(0, std::to_string(object3d->zang).find(".") + 2 + 1);
+    string rX = to_string(object3d->angX).substr(0, std::to_string(object3d->angX).find(".") + 2 + 1);
+    string rY = to_string(object3d->angY).substr(0, std::to_string(object3d->angY).find(".") + 2 + 1);
+    string rZ = to_string(object3d->angZ).substr(0, std::to_string(object3d->angZ).find(".") + 2 + 1);
     string string1 = "Rotacao: X: " + rX + " Y: " + rY + " Z: " + rZ;
     CV::text(10, 70, string1.c_str());
 
@@ -123,67 +129,67 @@ void Config::renderAplication()
 
 //**********************************************************
 //                                                        //
-// Fun��es responsaveis pelas a��es do usu�rio            //
+// Functions responsible for user actions                 //
 //                                                        //
 //**********************************************************
 
 void Config::Keyboard(int key)
 {
-    if (key == 127) // Tecle'Delete' -> Limpar a Curva
+    if (key == 200) // Left Arrow -> Translate X to the left
+        object3d->Translate(1, false, curva->pcurva);
+    else if (key == 202) // Right Arrow -> Translate X to the right
+        object3d->Translate(1, true, curva->pcurva);
+    else if (key == 201) // Up Arrow -> Translate Y up
+        object3d->Translate(2, true, curva->pcurva);
+    else if (key == 203) // Down Arrow -> Translate Y down
+        object3d->Translate(2, false, curva->pcurva);
+    else if (key == 56) // Key 8 -> Rotate Y positively
+        object3d->Rotation(1, false, curva->pcurva);
+    else if (key == 50) // Key 2 -> Rotate Y negatively
+        object3d->Rotation(1, true, curva->pcurva);
+    else if (key == 52) // Key 8 -> Rotates X positively
+        object3d->Rotation(2, false, curva->pcurva);
+    else if (key == 54) // Key 8 -> Rotate X negatively
+        object3d->Rotation(2, true, curva->pcurva);
+    else if (key == 57) // Key 8 -> Rotates Z positively
+        object3d->Rotation(3, false, curva->pcurva);
+    else if (key == 55) // Key 8 -> Rotates Z negatively
+        object3d->Rotation(3, true, curva->pcurva);
+    else if (key == 127) // Key 'Delete' -> Clear Curve
     {
         curva->pcontrole.clear();
         curva->pcurva.clear();
-        object3d->clear();
+        object3d->reset();
     }
-    else if (key == 100) // Tecle'D' -> Adicionar Faces
+    else if (key == 100) // Key 'D' -> Add Faces
     {
         object3d->nfaces++;
         object3d->Apply(curva->pcurva);
     }
-    else if (key == 97)
-    { // Tecle'A' -> Remover Faces
+    else if (key == 97) // Key 'A' -> Remove Faces
+    {
         object3d->nfaces = object3d->nfaces < 2 ? 1 : object3d->nfaces - 1;
         object3d->Apply(curva->pcurva);
     }
-    else if (key == 119)
-    { // Tecle'W" -> Adicionar Pontos
+    else if (key == 119) // Key 'W' -> Add Points
+    {
         curva->cpontos++;
-        object3d->npontos++;
+        object3d->nPoints++;
         curva->Apply(typeConnection);
         object3d->Apply(curva->pcurva);
     }
-    else if (key == 115)
-    { // Tecle'S' -> Remover Pontos
+    else if (key == 115) // Key 'S' -> Remove Points
+    {
         curva->cpontos = curva->cpontos < 2 ? 1 : curva->cpontos - 1;
-        object3d->npontos = object3d->npontos < 2 ? 1 : object3d->npontos - 1;
+        object3d->nPoints = object3d->nPoints < 2 ? 1 : object3d->nPoints - 1;
         curva->Apply(typeConnection);
         object3d->Apply(curva->pcurva);
     }
-    else if (key == 8) // backspace -> apagar ultimo ponto
+    else if (key == 8) // backspace -> delete last point
     {
         if (!curva->pcontrole.empty())
             curva->pcontrole.pop_back();
     }
-    else if (key == 200) // Seta Esquerda -> Translada X para esquerda
-        object3d->Translate(1, false, curva->pcurva);
-    else if (key == 202) // Seta Direita -> Translada X para direita
-        object3d->Translate(1, true, curva->pcurva);
-    else if (key == 201) // Seta Cima -> Translada Y para cima
-        object3d->Translate(2, true, curva->pcurva);
-    else if (key == 203) // Seta Baixo -> Translada Y para baixo
-        object3d->Translate(2, false, curva->pcurva);
-    else if (key == 56) // Tecla 8 -> Rotaciona Y positivamente
-        object3d->Moves(1, false, curva->pcurva);
-    else if (key == 50) // Tecla 2 -> Rotaciona Y negativamente
-        object3d->Moves(1, true, curva->pcurva);
-    else if (key == 52) // Tecla 8 -> Rotaciona X positivamente
-        object3d->Moves(2, false, curva->pcurva);
-    else if (key == 54) // Tecla 8 -> Rotaciona X negativamente
-        object3d->Moves(2, true, curva->pcurva);
-    else if (key == 57) // Tecla 8 -> Rotaciona Z positivamente
-        object3d->Moves(3, false, curva->pcurva);
-    else if (key == 55) // Tecla 8 -> Rotaciona Z negativamente
-        object3d->Moves(3, true, curva->pcurva);
 };
 
 void Config::keyboardUp(int key){};
@@ -191,7 +197,7 @@ void Config::keyboardUp(int key){};
 /* Function that checks mouse states */
 void Config::Mouse(int button, int state, int wheel, int direction, int mouseX, int mouseY)
 {
-    // Verifica se o mouse esta na tela 2d
+    // Check if the mouse is on the 2d screen
     if (mouseX > 0 && mouseX < 250 && mouseY > 180 && mouseY < screenHeight - 30)
     {
         insideCanvas = true;
@@ -247,7 +253,7 @@ void Config::Mouse(int button, int state, int wheel, int direction, int mouseX, 
 
 //**********************************************************
 //                                                        //
-// Fun��es responsaveis pelos Bot�es                      //
+// Functions responsible for the Buttons                  //
 //                                                        //
 //**********************************************************
 
@@ -270,7 +276,7 @@ void Config::ActionButton(Button *btn)
     {
         curva->pcontrole.clear();
         curva->pcurva.clear();
-        object3d->clear();
+        object3d->reset();
     }
 }
 
@@ -284,7 +290,7 @@ void Config::CreateButtons()
 
 //**********************************************************
 //                                                        //
-// Fun��es responsaveis pelos Checkbox                    //
+// Functions responsible for Checkbox                     //
 //                                                        //
 //**********************************************************
 

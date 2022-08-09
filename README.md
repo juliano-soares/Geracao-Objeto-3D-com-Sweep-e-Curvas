@@ -1,5 +1,8 @@
 # Geração de Objeto 3D com Sweep e Curvas
 
+- Nome: Juliano Leonardo Soares
+- Matricula: 201713854
+
 <div style="align-item:center;">
     <img src="./Objeto3dcomSweepECurvas/resources/captura.PNG" width="800" alt="captura do projeto."/>
 </div>
@@ -10,7 +13,7 @@ rotacional e curvas de Bezier.
 
 ## Manual de Uso:
 Basta abrir a plicação executar o main junto com as bibliotecas necessaria para rodar o canvas2d. As telcas de ação estão descritas na interface do programa.
-
+ 
 ## Implementações:
 
 ### Básico:
@@ -36,3 +39,5 @@ Basta abrir a plicação executar o main junto com as bibliotecas necessaria par
 - [ ] Gerar outras formas de conexao entre os pontos 
 - [ ] Utilizar textura 
 - [ ] E melhorar a performance
+
+OBS: Para desenhar a B-Spline é necessário somente 4 pontos de controle, por isso se você tiver menos de 4 pontos irá aparecer uma mensagem no terminal avisando, e se você tiver com mais de 4 pontos o programa automaticamente apaga os últimos pontos adicionados até sobrar somente os 4 pontos primeiros pontos. Há um pequeno problema ao apagar os pontos durante o render da B-Spline que fica resquícios dos pontos anteriores, este problema não foi resolvido até então por falta de tempo.

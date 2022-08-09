@@ -1,3 +1,9 @@
+/**
+    Point functions
+    @file Point.cpp
+    @author Juliano Leonardo Soares
+    @version 1.1 13/06/22
+*/
 #include "Point.hpp"
 #include "../Modules/gl_canvas2d.h"
 #include <cmath>
@@ -5,60 +11,54 @@
 
 using namespace std;
 
-Point::Point(){
+Point::Point()
+{
     x = y = z = 0;
     selected = false;
 }
 
-Point::Point(const Point & p){
+Point::Point(const Point &p)
+{
     this->x = p.x;
     this->y = p.y;
     this->z = p.z;
     selected = false;
 }
 
-Point::Point(double x, double y){
-    this->x = x;
-    this->y = y;
-    this->z = 0;
-    selected = false;
-}
-
-Point::Point(double x, double y, double z){
+Point::Point(double x, double y, double z)
+{
     this->x = x;
     this->y = y;
     this->z = z;
     selected = false;
 }
 
-void Point::RotateX(double ang){
+void Point::RotateX(double ang)
+{
     double temp = y;
-    y = y*cos(ang) - z*sin(ang);
-    z = temp*sin(ang) + z*cos(ang);
+    y = y * cos(ang) - z * sin(ang);
+    z = temp * sin(ang) + z * cos(ang);
 }
 
-void Point::RotateY(double ang){
+void Point::RotateY(double ang)
+{
     double temp = x;
-    x = x*cos(ang) + z*sin(ang);
-    z = -temp*sin(ang) + z*cos(ang);
+    x = x * cos(ang) + z * sin(ang);
+    z = -temp * sin(ang) + z * cos(ang);
 }
 
-void Point::RotateZ(double ang){
+void Point::RotateZ(double ang)
+{
     double temp = x;
-    x = x*cos(ang) - y*sin(ang);
-    y = temp*sin(ang) + y*cos(ang);
+    x = x * cos(ang) - y * sin(ang);
+    y = temp * sin(ang) + y * cos(ang);
 }
 
-void Point::Translate(double x, double y, double z){
+void Point::Translate(double x, double y, double z)
+{
     this->x += x;
     this->y += y;
     this->z += z;
-}
-
-void Point::Projection(double d){
-    this->x = (x*d) / z;
-    this->y = (y*d) / z;
-    this->z = 0;
 }
 
 void Point::pLine(Point &p2)
@@ -69,15 +69,18 @@ void Point::pLine(Point &p2)
 void Point::pLineBold(Point &p2)
 {
     CV::line(x, y, p2.x, p2.y);
-    CV::line(x-1, y-1, p2.x-1, p2.y-1);
-    CV::line(x+1, y+1, p2.x+1, p2.y+1);
+    CV::line(x - 1, y - 1, p2.x - 1, p2.y - 1);
+    CV::line(x + 1, y + 1, p2.x + 1, p2.y + 1);
 }
 
 void Point::circleInPoint()
 {
-    if(selected) {
+    if (selected)
+    {
         CV::color(2);
-    } else {
+    }
+    else
+    {
         CV::color(13);
     }
 
@@ -85,10 +88,17 @@ void Point::circleInPoint()
     CV::color(13);
 }
 
+void Point::circleInPoint3d()
+{
+    CV::color(1, 0, 0);
+    CV::circleFill(x, y, 3, 30);
+}
+
 bool Point::cIntersect(int mouseX, int mouseY)
 {
-    double d = sqrt((mouseX - x)*(mouseX - x)) + ((mouseY - y)*(mouseY - y));
-    if (d > (raio + raio)) {
+    double d = sqrt((mouseX - x) * (mouseX - x)) + ((mouseY - y) * (mouseY - y));
+    if (d > (raio + raio))
+    {
         return false;
     }
     selected = true;
@@ -96,4 +106,5 @@ bool Point::cIntersect(int mouseX, int mouseY)
 }
 
 Point::~Point()
-{ }
+{
+}

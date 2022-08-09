@@ -1,3 +1,9 @@
+/**
+    Config functions
+    @file Config.hpp
+    @author Juliano Leonardo Soares
+    @version 1.2 24/07/22
+*/
 #ifndef __CONFIG__H__
 #define __CONFIG__H__
 
@@ -5,8 +11,6 @@
 #include "../Components/Checkbox/Checkbox.hpp"
 #include "../Components/Object3d/Object3d.hpp"
 #include "../Components/Curves/Curves.hpp"
-#include "../Utils/Vector3.hpp"
-#include "../Graphics/Graphics.hpp"
 
 #include <vector>
 
@@ -34,7 +38,6 @@ public:
 
     vector<Button *> buttons;
     vector<Checkbox *> cbTypeConnection;
-    vector<Vec3f> vertices;
     Curves *curva;
     Object3d *object3d;
     Point *m = NULL;
