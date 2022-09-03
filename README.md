@@ -1,8 +1,5 @@
 # Geração de Objeto 3D com Sweep e Curvas
 
-- Nome: Juliano Leonardo Soares
-- Matricula: 201713854
-
 <div style="align-item:center;">
     <img src="./Objeto3dcomSweepECurvas/resources/captura.PNG" width="800" alt="captura do projeto."/>
 </div>
